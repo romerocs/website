@@ -1,0 +1,39 @@
+//https://every-layout.dev/layouts/cover/
+
+/**
+ *
+ * DEFAULTS
+ *
+ * */
+//
+//TODO: SYNC WITH THE OTHER HEADER TREATMENTS (BILLBOARD, COVER, DECORATIVE HEADER).
+@mixin cover($justify: center, $height: 0) {
+  --cv-justify: #{$justify};
+
+  display: flex;
+  flex-direction: column;
+  height: $height; //TODO: CONSIDER MOVING TO A HEADER SETTINGS FILE
+  min-height: #{calc-rem(420)}rem; //TODO: CONSIDER MOVING TO A HEADER SETTINGS FILE
+  max-height: #{calc-rem(698)}rem; //TODO: CONSIDER MOVING TO A HEADER SETTINGS FILE
+  justify-content: var(--cv-justify);
+}
+
+.l-cover {
+  @include cover();
+}
+
+/**
+ *
+ * MODIFIERS
+ *
+ * justify: --justify:fs, --justify:ctr, etc
+ * overlay: -overlay
+ * */
+
+.l-cover.-justify\:fs {
+  $justify: flex-start;
+
+  --cv-justify: #{$justify};
+
+  justify-content: var(--cv-justify);
+}

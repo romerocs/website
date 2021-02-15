@@ -1,0 +1,88 @@
+//https://every-layout.dev/layouts/center/
+
+@use '../../settings/breakpoints' as bp;
+@use '../../settings/scale' as sc;
+/**
+ * 
+ * DEFAULTS
+ * 
+ * */
+@function _converttorem($px) {
+  @return #{sc.calc-rem(bp.screen-width($px))}rem;
+}
+
+@mixin center($maxWidth: 1024, $align: center) {
+  $mw: _converttorem($maxWidth);
+
+  --cr-max-width: #{$mw};
+  --cr-align: #{$align};
+
+  box-sizing: content-box;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: var(--cr-max-width);
+  display: flex;
+  flex-direction: column;
+  padding-right: var(--s0);
+  padding-left: var(--s0);
+  align-items: var(--cr-align);
+}
+
+.l-center {
+  @include center();
+}
+
+/**
+ * 
+ * MODIFIERS
+ * 
+ * width: -w:100%
+ * max-width: -mw\:375, -mw\:768, -mw\:65ch, etc
+ * width: -w:100%, etc
+ * align: --align:fs, --align:fe, etc
+ * note, align modifiers are for aligning content INSIDE the centered container
+ * */
+
+@mixin _centerWidth($maxWidth: null) {
+  --cr-max-width: #{_converttorem($maxWidth)}; //max-width in px
+
+  max-width: var(--cr-max-width);
+  width: auto;
+
+  @include bp.breakpoint(#{$maxWidth + 1}px) {
+    width: 100%;
+    padding: 0;
+  }
+}
+
+.l-center.-mw\:640 {
+  @include _centerWidth(640);
+}
+
+.l-center.-mw\:768 {
+  @include _centerWidth(768);
+}
+
+.l-center.-mw\:838 {
+  @include _centerWidth(838);
+}
+
+.l-center.-mw\:1200 {
+  @include _centerWidth(1200);
+}
+
+.l-center.-mw\:65ch {
+  $mw: 65ch;
+
+  --cr-measure: #{$mw};
+
+  max-width: var(--cr-measure);
+}
+
+.l-center.-align\:fs {
+  $align: flex-start;
+
+  --cr-align: #{$align};
+
+  align-items: var(--cr-align);
+}

@@ -1,0 +1,54 @@
+//https://every-layout.dev/layouts/box/
+
+/**
+ * Note, this component has color (text and background) as one of its concerns,
+ * so it is not a pure layout component.
+ */
+
+/**
+ * 
+ * DEFAULTS
+ * 
+ * */
+
+//TODO: THINK ABOUT MODIFIERS FOR THIS (COLOR + SPACE + BORDER(?))
+//MAKE SURE TO BE CONSISTENT WITH OTHER PRIMITIVES MODIFIERS I.E. CLUSTER AND STACK
+// $space: size(s0);
+// $border_width: 0;
+// $color_light: color(white);
+// $color_dark: color(blueberry-blue);
+
+// .l-box {
+//   --bx-space: #{$space};
+//   --bx-border-width: #{$border-width};
+//   --bx-color-light: #{$color_light};
+//   --bx-color-dark: #{$color_dark};
+
+//   padding: $space;
+//   padding: var(--bx-space);
+//   border: #{$border_width} solid;
+//   border: var(--bx-border-width) solid;
+//   color: $color_dark;
+//   color: var(--bx-color-dark);
+//   background-color: $color_dark;
+//   background-color: var(--bx-color-light);
+// }
+
+// .l-box * {
+//   color: inherit;
+// }
+
+/**
+ * 
+ * MODIFIERS
+ * 
+ * scale: s-1, s0, s1, s2 etc
+ * color: flp (flip)
+ * */
+
+// .l-box.-flp {
+//   color: $color_light;
+//   color: var(--bx-color-light);
+//   background-color: $color_dark;
+//   background-color: var(--bx-color-dark);
+// }

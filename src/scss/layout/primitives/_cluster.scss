@@ -1,0 +1,79 @@
+//https://every-layout.dev/layouts/cluster
+
+@use '../../settings/scale' as sc;
+
+/**
+ *
+ * DEFAULTS
+ *
+ * */
+
+@mixin cluster($space: s0, $justify: space-between, $align: center) {
+  --cl-space: var({$space});
+  --cl-justify: #{$justify};
+  --cl-align: #{$align};
+
+  overflow: hidden;
+
+  > * {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: var(--cl-justify);
+    align-items: var(--cl-align);
+    margin: calc(var(--cl-space) / 2 * -1);
+  }
+
+  > * > * {
+    margin: calc(var(--cl-space) / 2);
+  }
+}
+
+.l-cluster {
+  @include cluster();
+}
+
+/**
+ *
+ * MODIFIERS
+ *
+ * scale: s-1, s0, s1, s2 etc
+ * justify-content: --justify:fs (flex-start), --justify:fe (flex-end), --justify:cr (center), etc
+ * align-items: --align:fs, --align:fe, etc
+ * */
+
+@mixin _clusterSpacing($space: null) {
+  --cl-space: #{$space};
+
+  > * {
+    margin: calc(var(--cl-space) / 2 * -1);
+  }
+
+  > * > * {
+    margin: calc(var(--cl-space) / 2);
+  }
+}
+
+@mixin _clusterJustify($justify: null) {
+  --cl-justify: #{$justify};
+
+  > * {
+    justify-content: var(--cl-justify);
+  }
+}
+
+.l-cluster.-justify\:fs {
+  @include _clusterJustify(flex-start);
+}
+
+.l-cluster.-justify\:sb {
+  @include _clusterJustify(space-between);
+}
+
+//align-items: baseline
+.l-cluster.-align\:base {
+  $align: baseline;
+
+  --cl-align: #{$align};
+
+  align-items: var(--cl-align);
+}

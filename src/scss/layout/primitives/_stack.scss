@@ -1,0 +1,61 @@
+//https://every-layout.dev/layouts/stack/
+@use '../../settings/scale' as sc;
+
+/**
+ *
+ * DEFAULTS
+ *
+ * */
+
+@mixin stack($space: --s0, $align: flex-start) {
+  --st-space: var(#{$space});
+  --st-align: #{$align};
+
+  display: flex;
+  flex-direction: column;
+  justify-content: var(--st-align);
+
+  //reset heading line-height
+  h1,
+  h2,
+  h3 {
+    line-height: 1;
+  }
+
+  > * {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  > * + * {
+    margin-top: var(--st-space);
+  }
+}
+
+.l-stack {
+  @include stack();
+}
+
+/**
+ *
+ * MODIFIERS
+ *
+ * scale: .-s-1, .-s0, .-s1, .-s2 etc
+ * align: .-align:fs, --align:ctr, etc
+ * */
+
+@mixin _stackSpacing($space: null) {
+  --st-space: #{$space};
+
+  > * + * {
+    margin-top: var(--st-space);
+  }
+}
+
+.l-stack.-align\:ctr {
+  $align: center;
+
+  --st-align: #{$align};
+
+  justify-content: var(--st-align);
+}

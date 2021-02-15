@@ -1,0 +1,74 @@
+//https://every-layout.dev/layouts/grid/
+
+//CSS Grid primitive with flexbox fallback
+
+/**
+ * 
+ * DEFAULTS
+ * 
+ * */
+
+$gap: var(--s2);
+
+.l-grid {
+  --row-gap: #{$gap};
+  --column-gap: #{$gap};
+  --gr-gap: var(--row-gap) var(--column-gap);
+
+  display: flex; //fallback
+  flex-wrap: wrap;
+  width: 100%;
+  gap: var(--gr-gap);
+  margin: calc(#{$gap} / 2 * -1); //fallback
+
+  > * {
+    margin: calc(#{$gap} / 2);
+  }
+}
+
+@supports (width: min(1px, 100%)) {
+  .l-grid {
+    display: grid;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .l-grid > * {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+/**
+ * 
+ * MODIFIERS
+ * 
+ * gap: -gap:s1, etc
+ * row-gap: -row-gap:s1, etc
+ * column-gap: -column-gap:s1, etc
+ * item-width: -item:24rem, etc
+ * "item-width" refers to the minimum width of each grid item.
+ * */
+
+@mixin _itemWidth($width: null) {
+  .l-grid.-item\:#{$width} > * {
+    flex-basis: calc(#{$width} - #{$gap}); //fallback
+  }
+
+  @supports (width: min(1px, 100%)) {
+    .l-grid.-item\:#{$width} {
+      grid-template-columns: repeat(
+        auto-fill,
+        minmax(min(#{$width}, 100%), 1fr)
+      );
+    }
+  }
+}
+
+@include _itemWidth(24rem);
+
+.l-grid.-row-gap\:s7 {
+  $row_gap: var(--s7);
+
+  --row-gap: #{$row_gap};
+}

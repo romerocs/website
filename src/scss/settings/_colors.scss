@@ -1,0 +1,18 @@
+$turquoise: #016d77;
+$seafoam: #02d4e7;
+$purple: #b002a1;
+$hotpink: #f702e3;
+$offwhite: #f9f4f0;
+
+//TODO: CREATE COLOR PALETTE BASED ON THE GREEN COLORS YOU CHOSE IN coolors.co. Make sure to add a black and white/off-white color
+//TODO: Also add a gradient, maybe use gradients as headers for pages
+//TODO: ANOTHER IDEA WOULD BE TO USE GRADIENTS FOR HEADER TEXT
+:root {
+  --turquoise: #{$turquoise};
+  --seafoam: #{$seafoam};
+  --purple: #{$purple};
+  --hotpink: #{$hotpink};
+  --primary: var(--turquoise);
+  --secondary: var(--purple);
+  --background: #{$offwhite};
+}

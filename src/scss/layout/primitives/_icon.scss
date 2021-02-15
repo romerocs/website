@@ -1,0 +1,37 @@
+//https://every-layout.dev/layouts/icon/
+@use '../../settings/scale' as sc;
+
+/**
+ * Note, this component is meant for a use-case where the icon is used in adjacent to text.
+ */
+
+/**
+ *
+ * DEFAULTS
+ *
+ * */
+
+@mixin icon($iconSelector: ".icon", $spacing: 0) {
+  display: inline-flex;
+  align-items: baseline;
+
+  #{$iconSelector} {
+    --i-space: #{$spacing};
+
+    width: 0;
+    width: 1cap;
+    height: 0;
+    height: 1cap;
+    margin: 0 #{$spacing};
+    text-align: left;
+
+    @supports (margin-inline-end: 1rem) {
+      margin: 0;
+      margin-inline-end: var(--i-space);
+    }
+  }
+}
+
+.l-has-icon {
+  @include icon();
+}
