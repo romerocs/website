@@ -1,0 +1,16 @@
+.footer {
+  position: sticky;
+  bottom: 0;
+  z-index: 1;
+  color: var(--offwhite);
+  background-color: var(--primary);
+  padding: var(--vertical-rhythm);
+}
+
+.not-footer {
+  background-color: var(--bg);
+  min-height: 100vh;
+  position: relative;
+  z-index: 2;
+  padding-bottom: calc(var(--vertical-rhythm) * 2);
+}

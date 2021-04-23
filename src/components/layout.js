@@ -4,14 +4,12 @@ import PropTypes from 'prop-types';
 import { StaticQuery, graphql } from 'gatsby';
 
 import Header from './header.jsx';
-import './layout.css';
 
 
 import Image from './image';
 import SEO from './seo';
 
 const shortcodes = { Image, SEO };
-const stackSpace = "var(s0)";
 const Layout = ({ children }) => (
 
   <MDXProvider components={shortcodes}>

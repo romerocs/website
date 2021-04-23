@@ -1,0 +1,24 @@
+@use '../0-settings/scale';
+//https://every-layout.dev/layouts/cover/
+
+/**
+ *
+ * DEFAULTS
+ *
+ * */
+//
+@mixin create($justify: center, $height: 41.6vw) {
+  --cv-justify: #{$justify};
+
+  display: flex;
+  flex-direction: column;
+  height: $height;
+  min-height: #{scale.calc-rem(420)}rem;
+  max-height: #{scale.calc-rem(698)}rem;
+  justify-content: $justify;
+  justify-content: var(--cv-justify);
+}
+
+// .l-billboard {
+//   @include create();
+// }

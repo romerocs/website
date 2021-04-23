@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Hr = () => (
-  <div className='hr'>
+const Hr = ({ style }) => (
+  <div className='hr' style={style}>
     <hr />
   </div>
 );

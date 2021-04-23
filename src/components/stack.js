@@ -1,12 +1,16 @@
 import React from 'react';
 
 
-const Stack = (scale = 's0') => {
+const Stack = ({ margin = false, children }) => {
+  const style = {
+    '--st-margin': margin ? `var(${margin})` : false
+  };
 
   return (
-    <div>
+    <div className={'l-stack'} style={{ ...style }}>
       {children}
     </div>
   );
 };
-export default Image;
+
+export default Stack;

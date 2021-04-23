@@ -1,0 +1,54 @@
+---
+title: Modern Solutions for building a Responsive Hero Banner
+slug: /blog/how-to-build-a-responsive-hero
+posttype: blog
+---
+
+<!-- considerations:
+
+use css custom props
+use aspect ratio
+use responsive bg
+is it full width or is there padding? will influence the hieght value
+this is kind of like clamp for height
+reference layout primitives
+solution using padding
+
+link to caniuse for edge features:
+
+add a skip to solution button
+image-set -->
+
+# Modern Solutions for building a Responsive Hero Banner
+
+This is a solution for a responsive hero that I've started using recently. If the hero banner goes the full width of the browser window, you can use the viewport width unit (vw) as a way to maintain the aspect ratio. And the the `clamp()` function provides a concise way to set the min and max heights. Here's a [post](https://chipcullen.com/css-min-max-clamp-functions/) about css math functions that was helpful for me. You could also just use `min-height` and `max-height` if you need to support IE 11.
+
+```html
+<header>
+  <div>
+    <h1>Title</h1>
+  </div>
+</header>
+```
+
+```css
+/* test comment */
+
+header > * {
+  display: grid;
+  place-content: center;
+  height: clamp(420px, 41.3vw, 698px);
+}
+```
+
+You can see I'm using CSS Grid to center the child content of the header. I typically use Flexbox to center content, but I thought, why not live a little, you deserve it! I just love how you can achieve a centered layout with just those 2 lines.
+
+Here's the full solution in a CodePen:
+
+[embed]
+
+In the past I have used the bottom (or top) padding technique. However, this solution requires media queries to set (or clamp) the minimum and maximum heights.
+
+[embed here]
+
+As you can see it gets a little laborious having to set and then override properties via media queries. Not to mention its just harder to read. The added annoyance is that the content of the hero needs to be absolutely positioned in order to fill the container properly.

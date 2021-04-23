@@ -1,0 +1,29 @@
+//https://every-layout.dev/layouts/center/
+
+/**
+ * 
+ * DEFAULTS
+ * 
+ * */
+$_padding: var(--s0);
+
+@mixin create($max-width: 1024px, $align: center) {
+  $mw: $max-width;
+
+  --cr-max-width: #{$mw};
+  --cr-align: #{$align};
+
+  box-sizing: content-box;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: var(--cr-max-width);
+  display: flex;
+  flex-direction: column;
+  padding-right: #{$_padding};
+  padding-left: #{$_padding};
+  align-items: var(--cr-align);
+}
+
+.l-center {
+  @include create();
+}

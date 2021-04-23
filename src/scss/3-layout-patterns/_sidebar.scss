@@ -1,0 +1,41 @@
+@use '../0-settings/scale';
+
+//https://every-layout.dev/layouts/sidebar/
+
+/**
+ * Note, the width of the sidebar will be determined by its content,
+ * so there's no need for this component to specify width. 
+ */
+
+/**
+ *
+ * DEFAULTS
+ *
+ * */
+
+@mixin create($margin: var(--s0), $not-sidebar-element: ".not-sidebar") {
+  --sb-margin: #{$margin};
+
+  overflow: hidden;
+
+  > * {
+    display: flex;
+    flex-wrap: wrap;
+    margin: calc(var(--sb-margin) / 2 * -1);
+  }
+
+  > * > * {
+    margin: calc(var(--sb-margin) / 2);
+    flex-grow: 1;
+  }
+
+  > * > #{$not-sidebar-element} {
+    flex-basis: 0;
+    flex-grow: 999;
+    min-width: calc(50% - var(--sb-margin));
+  }
+}
+
+// .l-sidebar {
+//   @include create();
+// }

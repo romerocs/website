@@ -2,12 +2,6 @@
 
 ## TODOS:
 
-- use link hover styles from codepen
-- beef up typography of main homepage statement
-- add footer content, maybe move socials there?
-- turn site title into a css rule `chris-romero: front-end-developer !important;`
-- USE BEM method
-- add og meta
 - Replace functions with custom properties, where possible
 - Consider using the Every.Layout web components
 - Use font loading techniques for better performance
@@ -22,6 +16,7 @@
 - add a photo of yourself
 - Dark mode
 - use lab colors(?) to programatically generate colors
+- http2
 
 Goals:
 Define my areas of expertise
@@ -43,7 +38,6 @@ Blog
 
 ## TUTORIAL OPTIONS
 
-- FLIP method, specifically libraries that have it bundled in (maybe buy the greensock one?)
 - using css custom variables to pass values from html to css, better than just plain old inline styles, they are SUPERPOWERED INLINE STYLES!!!! CALL IT THAATTTTTT, TAHTS SOOOOO CLEVER!!!!! UR CUTE, WHATS YOUR NAME??
 
 TALK ABOUT HOW HEYDON, ANDY AND CHRIS COYIER HAVE ALL BEEN GREAT INFUENCES ON YOU. THINK OF MORE!! GREAT BLOG POST IDEA. TALK ABOUT HOW YOU LIKE THEM BC THEY HAVE A VERY ACCESSIBLE ATTITUDE, THEY ARE NICE
@@ -64,15 +58,13 @@ This is what the Front-End means to me:
 Here's me with my wife Jennie and dog Randy. I heart them [footer]
 
 Blog Post ideas
-
-- FLIP animation example
-  How i got into the web stuff (bg is as a visual designer, not a cs person, like the instant gratification of web, i like tech, i like tinkering)
-  Diversity and Inclusion in the tech space
-  Ethics in tech
-  imposter syndrome
-  intrinsic design
-  email
-  custom properties
-  modular scale
-  having a beginners attitude
-  css as a programming language -- you can provide arguments via a class or prop, and it does something, debugging with red border, fallbacks, conditional statements, control structures
+How i got into the web stuff (bg is as a visual designer, not a cs person, like the instant gratification of web, i like tech, i like tinkering)
+Diversity and Inclusion in the tech space
+Ethics in tech
+imposter syndrome
+intrinsic design
+email
+custom properties
+modular scale
+having a beginners attitude
+css as a programming language -- you can provide arguments via a class or prop, and it does something, debugging with red border, fallbacks, conditional statements, control structures

@@ -1,0 +1,41 @@
+//https://every-layout.dev/layouts/grid/
+
+/**
+ * 
+ * DEFAULTS
+ * 
+ * */
+
+$_gap: var(--s2);
+$_min-width: 35ch;
+
+.l-grid {
+  --gap: #{$_gap} #{$_gap};
+  --min-width: #{$_min-width};
+
+  display: flex; //fallback
+  flex-wrap: wrap;
+  width: 100%;
+  gap: var(--gap);
+  margin: calc(#{$_gap} / 2 * -1); //fallback
+
+  @supports (width: min(1px, 100%)) {
+    display: grid;
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(min(var(--min-width), 100%), 1fr)
+    );
+    margin-left: 0;
+    margin-right: 0;
+
+    > * {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+
+  > * {
+    margin: calc(#{$_gap} / 2);
+    flex-basis: calc(#{#{$_min-width}} - #{$_gap}); //fallback
+  }
+}

@@ -1,0 +1,18 @@
+/**
+ * The clamp function allows for responsive scaling of fonts, spacing and positioning.
+ * 
+ * ALL UNITS MUST BE IN REMS
+ * 
+ * @see https://websemantics.uk/tools/responsive-font-calculator/
+ * 
+ */
+@function _clamp($size-min, $size-max, $screen-min, $screen-max) {
+  $x: #{$screen-min / 100};
+  $y: 100 * ($size-max - $size-min) / ($screen-max - $screen-min);
+
+  @return clamp(
+    #{$size-min}rem,
+    calc(#{$size-min}rem + ((1vw - #{$x}rem) * #{$y})),
+    #{$size-max}rem
+  );
+}

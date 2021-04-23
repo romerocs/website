@@ -1,0 +1,34 @@
+//https://every-layout.dev/layouts/switcher/
+
+/**
+ *
+ * DEFAULTS
+ *
+ * */
+
+@mixin create($margin: var(--s0), $breakpoint: 300px) {
+  --sw-margin: #{$margin};
+  --sw-breakpoint: #{$breakpoint};
+
+  > * {
+    display: flex;
+    flex-wrap: wrap;
+    margin: calc((var(--sw-margin) / 2) * -1);
+  }
+
+  > * > * {
+    flex-grow: 1;
+    flex-basis: calc((var(--sw-breakpoint) - (100% - var(--sw-margin))) * 999);
+    margin: calc(var(--sw-margin) / 2);
+  }
+
+  //limits number of elements to less than 5
+  > * > :nth-last-child(n + 5),
+  > * > :nth-last-child(n + 5) ~ * {
+    flex-basis: 100%;
+  }
+}
+
+.l-switcher {
+  @include create();
+}

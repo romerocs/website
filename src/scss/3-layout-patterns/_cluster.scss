@@ -1,0 +1,30 @@
+//https://every-layout.dev/layouts/cluster
+
+/**
+ *
+ * DEFAULTS
+ *
+ * */
+
+@mixin create($margin: var(--s0), $justify: center) {
+  --cl-margin: #{$margin};
+  --cl-justify: #{$justify};
+
+  overflow: hidden;
+
+  > * {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: var(--cl-justify);
+    align-items: center;
+    margin: calc(var(--cl-margin) / 2 * -1);
+  }
+
+  > * > * {
+    margin: calc(var(--cl-margin) / 2);
+  }
+}
+
+.l-cluster {
+  @include create();
+}
