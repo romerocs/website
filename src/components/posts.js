@@ -3,8 +3,9 @@ import { MDXProvider } from "@mdx-js/react";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import { graphql } from 'gatsby';
 
+import NotFooter from "./NotFooter.jsx";
 import Header from './header.jsx';
-import Stack from './stack';
+import Footer from './footer.jsx';
 import CodeBlock from './codeBlock';
 
 import Image from './image';
@@ -25,17 +26,17 @@ const Post = ({ data }) => {
 
   return (
     <MDXProvider components={components}>
-      <Stack>
+      <NotFooter>
         <Header />
-        <div className='l-center'>
-          <Stack>
+        <main className='l-center'>
+          <div className="l-stack">
             <MDXRenderer>
               {body}
             </MDXRenderer>
-          </Stack>
-        </div>
-      </Stack>
-
+          </div>
+        </main>
+      </NotFooter>
+      <Footer />
     </MDXProvider>
   );
 };

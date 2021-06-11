@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Starter MDX Basic',
+    title: 'Chris Romero Blog',
     description:
       'Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.',
     author: '@chrisbiscardi',
@@ -46,19 +46,44 @@ module.exports = {
     },
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
+    // {
+    //   resolve: `gatsby-plugin-manifest`,
+    //   options: {
+    //     name: 'gatsby-default-mdx-basic',
+    //     short_name: 'starter',
+    //     start_url: '/',
+    //     background_color: '#663399',
+    //     theme_color: '#663399',
+    //     display: 'minimal-ui',
+    //     icon: '', // This path is relative to the root of the site.
+    //   },
+    // },
+    `gatsby-plugin-sass`,
     {
-      resolve: `gatsby-plugin-manifest`,
+      resolve: "gatsby-plugin-svgr-svgo",
       options: {
-        name: 'gatsby-default-mdx-basic',
-        short_name: 'starter',
-        start_url: '/',
-        background_color: '#663399',
-        theme_color: '#663399',
-        display: 'minimal-ui',
-        icon: 'src/images/gatsby-icon.png', // This path is relative to the root of the site.
+        inlineSvgOptions: [
+          {
+            test: /\.inline.svg$/,
+            svgoConfig: {
+              plugins: [
+                {
+                  removeTitle: false,
+                  cleanupIDs: false,
+                  prefixIds: false
+                },
+              ],
+            },
+          },
+        ],
+        urlSvgOptions: [
+          {
+            test: /\.svg$/,
+            svgo: false,
+          },
+        ],
       },
     },
-    `gatsby-plugin-sass`
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.app/offline
     // 'gatsby-plugin-offline',

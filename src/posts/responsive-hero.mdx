@@ -32,8 +32,6 @@ This is a solution for a responsive hero that I've started using recently. If th
 ```
 
 ```css
-/* test comment */
-
 header > * {
   display: grid;
   place-content: center;
@@ -45,10 +43,65 @@ You can see I'm using CSS Grid to center the child content of the header. I typi
 
 Here's the full solution in a CodePen:
 
-[embed]
+<iframe
+  height="350"
+  style="width: 100%;"
+  scrolling="no"
+  title="CSS Responsive Header using clamp() and Viewport Width (vw) units "
+  src="https://codepen.io/romerocs/embed/qBRgepe?height=265&theme-id=dark&default-tab=css,result"
+  frameborder="no"
+  loading="lazy"
+  allowtransparency="true"
+  allowfullscreen="true"
+>
+  See the Pen{" "}
+  <a href="https://codepen.io/romerocs/pen/qBRgepe">
+    CSS Responsive Header using clamp() and Viewport Width (vw) units{" "}
+  </a>{" "}
+  by Chris Romero (<a href="https://codepen.io/romerocs">@romerocs</a>) on{" "}
+  <a href="https://codepen.io">CodePen</a>.
+</iframe>
 
 In the past I have used the bottom (or top) padding technique. However, this solution requires media queries to set (or clamp) the minimum and maximum heights.
 
-[embed here]
+<iframe
+  height="350"
+  style="width: 100%;"
+  scrolling="no"
+  title="CSS Responsive Header using padding"
+  src="https://codepen.io/romerocs/embed/jOVxmmV?height=350&theme-id=dark&default-tab=css,result"
+  frameborder="no"
+  loading="lazy"
+  allowtransparency="true"
+  allowfullscreen="true"
+>
+  See the Pen{" "}
+  <a href="https://codepen.io/romerocs/pen/jOVxmmV">
+    CSS Responsive Header using padding
+  </a>{" "}
+  by Chris Romero (<a href="https://codepen.io/romerocs">@romerocs</a>) on{" "}
+  <a href="https://codepen.io">CodePen</a>.
+</iframe>
 
 As you can see it gets a little laborious having to set and then override properties via media queries. Not to mention its just harder to read. The added annoyance is that the content of the hero needs to be absolutely positioned in order to fill the container properly.
+
+Of course, eventually we will be able to use the new `aspect-ratio` property, which will make all these hacks and workarounds unnecessary. The major benefit that I see of using aspect-ratio is that when there's excess content within the aspect-ratio container, it expands to fit! That will definitely help to make banners much more user friendly on small screens.
+
+<iframe
+  height="350"
+  style="width: 100%;"
+  scrolling="no"
+  title="CSS Responsive Hero using aspect-ratio"
+  src="https://codepen.io/romerocs/embed/LYxqwQP?height=265&theme-id=dark&default-tab=html,result"
+  frameborder="no"
+  loading="lazy"
+  allowtransparency="true"
+  allowfullscreen="true"
+>
+  See the Pen{" "}
+  <a href="https://codepen.io/romerocs/pen/LYxqwQP">
+    CSS Responsive Hero using aspect-ratio
+  </a>{" "}
+  by Chris Romero (<a href="https://codepen.io/romerocs">@romerocs</a>) on{" "}
+  <a href="https://codepen.io">CodePen</a>.
+</iframe>

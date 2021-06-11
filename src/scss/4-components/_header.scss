@@ -1,10 +1,70 @@
+@use '../0-settings/breakpoints';
+@use '../0-settings/paths';
 @use '../3-layout-patterns/center';
 @use '../3-layout-patterns/stack';
 
 .header {
   text-align: center;
   width: 100%;
-  margin-top: var(--vertical-rhythm);
+  position: relative;
+  background: linear-gradient(
+    to right,
+    #d367c1 10%,
+    #dedf40 25%,
+    #62cb5c 50%,
+    #00bbcb 75%,
+    #ab79d6 90%
+  );
+  overflow: hidden;
+}
+
+header:after,
+header:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: block;
+  background-image: url(/animated-backround-border-w-shadow-pattern.svg);
+  background-repeat: repeat-x;
+  z-index: 3;
+  width: 1700px;
+  height: 36px;
+  max-width: none;
+  background-position: center 100%;
+  background-size: contain;
+}
+
+header:before {
+  --position-start: 50%;
+  --position-end: 100%;
+  transform: translateX(50%);
+  animation: moveBg 10s infinite linear;
+}
+
+header:after {
+  --position-start: -50%;
+  --position-end: 0;
+  transform: translateX(-50%);
+  animation-delay: 10s;
+  animation: moveBg 10s infinite linear;
+}
+
+@keyframes moveBg {
+  0% {
+    transform: translateX(var(--position-start));
+  }
+  100% {
+    transform: translateX(var(--position-end));
+  }
+}
+
+header > * {
+  margin: 0 auto;
+  max-width: 65ch;
+  padding: var(--s2);
+  position: relative;
+  z-index: 2;
 }
 
 .header h1 {

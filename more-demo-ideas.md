@@ -9,7 +9,6 @@
 
 ## IDEAS
 
-- ADD YOUR SENSE OF HUMOR!!!!!!!
 - Personal images as blog images,
 - show css for all parts of website
 - put code examples at the top of post
@@ -38,6 +37,7 @@ Blog
 
 ## TUTORIAL OPTIONS
 
+- how to use web components
 - using css custom variables to pass values from html to css, better than just plain old inline styles, they are SUPERPOWERED INLINE STYLES!!!! CALL IT THAATTTTTT, TAHTS SOOOOO CLEVER!!!!! UR CUTE, WHATS YOUR NAME??
 
 TALK ABOUT HOW HEYDON, ANDY AND CHRIS COYIER HAVE ALL BEEN GREAT INFUENCES ON YOU. THINK OF MORE!! GREAT BLOG POST IDEA. TALK ABOUT HOW YOU LIKE THEM BC THEY HAVE A VERY ACCESSIBLE ATTITUDE, THEY ARE NICE

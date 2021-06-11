@@ -6,13 +6,24 @@
  * @see https://websemantics.uk/tools/responsive-font-calculator/
  * 
  */
-@function _clamp($size-min, $size-max, $screen-min, $screen-max) {
-  $x: #{$screen-min / 100};
-  $y: 100 * ($size-max - $size-min) / ($screen-max - $screen-min);
+// @function set($size-min, $size-max, $screen-min, $screen-max) {
+//   // $x: #{$screen-min / 100}; ex 320 / 100 = 32
+//   // $y: 100 * ($size-max - $size-min) / ($screen-max - $screen-min);
 
-  @return clamp(
-    #{$size-min}rem,
-    calc(#{$size-min}rem + ((1vw - #{$x}rem) * #{$y})),
-    #{$size-max}rem
-  );
-}
+//   // @return clamp(
+//   //   #{$size-min},
+//   //   calc(#{$size-min} + ((1vw - #{$x}rem) * #{$y})),
+//   //   #{$size-max}
+//   // );
+// }
+
+/* 
+
+   $x: #{320 / 100}; ex 320 / 100 = 32
+   $y: 100 * ($size-max - $size-min) / ($screen-max - $screen-min); ex 100 * (5 - 3.375) / (90 - 20) = 1.625 /  
+   @return clamp(
+     #{$size-min},
+     calc(#{$size-min} + ((1vw - #{$x}rem) * #{$y})),
+     #{$size-max}
+   );
+*/

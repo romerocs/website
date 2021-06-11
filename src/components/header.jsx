@@ -3,7 +3,7 @@ import { Link } from "gatsby";
 
 import Hr from './hr';
 import Button from './button';
-import Center from './center';
+import Logo from '../images/logo.inline.svg';
 
 const clickHandler = () => {
   const root = document.documentElement;
@@ -13,15 +13,14 @@ const clickHandler = () => {
 const Header = () => {
   return (
     <header className='header'>
-      <Center align='flex-start'>
+      <div>
         <h1>
-          <Link to="/">Chris Romero</Link>
+          <Link to="/">
+            <Logo />
+          </Link>
         </h1>
-        <h2>
-          <Link to="/">Front-End Developer</Link>
-        </h2>
-        <Hr style={{ marginTop: "var(--vertical-rhythm)" }} />
-      </Center>
+
+      </div>
 
     </header>
   );

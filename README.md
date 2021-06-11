@@ -9,7 +9,6 @@
 - USE BEM method
 - add og meta
 - Replace functions with custom properties, where possible
-- Consider using the Every.Layout web components
 - Use font loading techniques for better performance
 - set up email, using hey.com maybe?
 
@@ -76,3 +75,10 @@ Blog Post ideas
   modular scale
   having a beginners attitude
   css as a programming language -- you can provide arguments via a class or prop, and it does something, debugging with red border, fallbacks, conditional statements, control structures
+
+Hi there, welcome to my little site. I'm a front-end developer in Richmond, VA. I enjoy thinking about and writing in html, css and presentational javascript. I also like to think about the people that use the websites I build, and how to improve their experiences on them.
+
+- I think about and write in html, css and javascript
+- I think about the **user** in everything I do
+- I strive for mutual understanding and meaningful collaboration with UX and UI professionals
+- I aim to create performant, accessible and responsive products for the web
