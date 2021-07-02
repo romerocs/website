@@ -1,12 +1,18 @@
 @use '../0-settings/breakpoints';
 @use '../0-settings/paths';
+@use '../0-settings/scale';
 @use '../3-layout-patterns/center';
 @use '../3-layout-patterns/stack';
+
+:root {
+  --header-height: #{scale.calc-rem(147)}rem;
+}
 
 .header {
   text-align: center;
   width: 100%;
   position: relative;
+  height: var(--header-height);
   background: linear-gradient(
     to right,
     #d367c1 10%,

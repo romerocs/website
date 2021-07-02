@@ -42,6 +42,7 @@ Blog
 
 ## TUTORIAL OPTIONS
 
+- using mask image with svg to change svg colors! https://css-tricks.com/almanac/properties/m/mask-image/
 - FLIP method, specifically libraries that have it bundled in (maybe buy the greensock one?)
 - using css custom variables to pass values from html to css, better than just plain old inline styles, they are SUPERPOWERED INLINE STYLES!!!! CALL IT THAATTTTTT, TAHTS SOOOOO CLEVER!!!!! UR CUTE, WHATS YOUR NAME??
 

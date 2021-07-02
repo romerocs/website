@@ -1,18 +1,19 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import { MDXProvider } from "@mdx-js/react";
 import PropTypes from 'prop-types';
 import { StaticQuery, graphql } from 'gatsby';
 
 import Header from './header.jsx';
 
-
 import Image from './image';
-import SEO from './seo';
+import Seo from './seo';
 
-const shortcodes = { Image, SEO };
+const shortcodes = { Image };
+
 const Layout = ({ children }) => (
-
   <MDXProvider components={shortcodes}>
+    <Seo />
     <StaticQuery
       query={graphql`
       query SiteTitleQuery {

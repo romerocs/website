@@ -6,7 +6,7 @@ const Footer = () => {
       <div className="l-stack l-center">
         <h2>🙂 I'd love to hear from you! 🙃</h2>
 
-        <div class="l-cluster">
+        <div className="l-cluster">
           <ul role='list'>
             <li><a href="https://www.twitter.com/csrcreative">Twitter</a></li>
             <li><a href="https://codepen.io/romerocs">CodePen</a></li>

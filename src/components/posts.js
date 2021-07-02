@@ -15,17 +15,17 @@ const pre = props => <div {...props}></div>;
 
 const components = {
   Image,
-  Seo,
   pre: pre,
   code: CodeBlock
 };
 
 const Post = ({ data }) => {
 
-  const { body } = data.mdx;
+  const { body, frontmatter } = data.mdx;
 
   return (
     <MDXProvider components={components}>
+      <Seo title={frontmatter.title} />
       <NotFooter>
         <Header />
         <main className='l-center'>
@@ -48,6 +48,9 @@ export const query = graphql`
     mdx(id: {eq: $id }) {
     id
       body
+    frontmatter {
+      title
+    }
     }
   }
 `;

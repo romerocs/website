@@ -11,13 +11,14 @@ import Card from './card';
 import Hr from './hr';
 
 import Image from './image';
-import SEO from './seo';
+import Seo from './seo';
 
-const shortcodes = { Image, SEO };
+const shortcodes = { Image };
 
 const Home = ({ children }) => (
 
   <MDXProvider components={shortcodes}>
+    <Seo />
     <StaticQuery
       query={graphql`
       query HomeQuery {
@@ -39,8 +40,8 @@ const Home = ({ children }) => (
           <React.Fragment>
             <NotFooter>
               <Header />
-              <main class='l-stack'>
-                <section className='l-center' style={{ "--cr-align": "flex-start" }}>
+              <main className='l-stack u-margin-top-0'>
+                <section className='l-center introduction' style={{ "--cr-align": "flex-start" }}>
                   {mdxContent}
                 </section>
 

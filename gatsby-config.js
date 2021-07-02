@@ -3,9 +3,12 @@ const path = require('path');
 module.exports = {
   siteMetadata: {
     title: 'Chris Romero Blog',
+    titleTemplate: "%s · Cromero.io",
+    image: "/static/social-card.png",
+    url: "https://cromero.io",
     description:
       'Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.',
-    author: '@chrisbiscardi',
+    author: '@romerocs',
   },
   plugins: [
     {
