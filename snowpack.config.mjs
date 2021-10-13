@@ -1,10 +1,12 @@
 /** @type {import("snowpack").SnowpackUserConfig } */
 export default {
   mount: {
-    public: { url: '/', static: true },
+    _output: { url: '/', static: true },
     src: { url: '/dist' },
   },
-  plugins: ['@snowpack/plugin-babel', '@snowpack/plugin-dotenv'],
+  plugins: [
+    ['@snowpack/plugin-run-script', { cmd: 'eleventy', watch: '$1 --watch' }],
+  ],
   routes: [
     /* Enable an SPA Fallback in development: */
     // {"match": "routes", "src": ".*", "dest": "/index.html"},
@@ -17,7 +19,8 @@ export default {
     /* ... */
   },
   devOptions: {
-    /* ... */
+    // Eleventy updates multiple files at once, so add a 300ms delay before we trigger a browser update
+    hmrDelay: 300,
   },
   buildOptions: {
     /* ... */
