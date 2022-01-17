@@ -1,0 +1,51 @@
+$easings: (
+  easeinsine: cubic-bezier(0.47, 0, 0.745, 0.715),
+  easeoutsine: cubic-bezier(0.39, 0.575, 0.565, 1),
+  easeinoutsine: cubic-bezier(0.445, 0.05, 0.55, 0.95),
+  easeinquad: cubic-bezier(0.55, 0.085, 0.68, 0.53),
+  easeoutquad: cubic-bezier(0.25, 0.46, 0.45, 0.94),
+  easeinoutquad: cubic-bezier(0.455, 0.03, 0.515, 0.955),
+  easeincubic: cubic-bezier(0.55, 0.055, 0.675, 0.19),
+  easeoutcubic: cubic-bezier(0.215, 0.61, 0.355, 1),
+  easeinoutcubic: cubic-bezier(0.645, 0.045, 0.355, 1),
+  easeinquart: cubic-bezier(0.895, 0.03, 0.685, 0.22),
+  easeoutquart: cubic-bezier(0.165, 0.84, 0.44, 1),
+  easeinoutquart: cubic-bezier(0.77, 0, 0.175, 1),
+);
+
+@function easing($easing-name, $color-variant: null) {
+  @return map-get($easings, $easing-name);
+}
+
+$transition-duration: 600ms;
+$transition-timing: easing(easeinoutquart);
+
+@mixin transition(
+  $properties: all,
+  $duration: $transition-duration,
+  $timing: $transition-timing,
+  $delay: false
+) {
+  //transition: $type $timing $ease;
+  transition-property: $properties;
+  transition-duration: $duration;
+  transition-timing-function: $timing;
+
+  @if ($delay != false) {
+    transition-delay: $delay;
+  }
+}
+
+@mixin animation(
+  $name,
+  $duration: $transition-duration,
+  $timing: $transition-timing,
+  $delay: 0s,
+  $fill-mode: forwards
+) {
+  animation-name: $name;
+  animation-duration: $duration;
+  animation-delay: $delay;
+  animation-timing-function: $timing;
+  animation-fill-mode: $fill-mode;
+}

@@ -1,0 +1,22 @@
+//https://every-layout.dev/layouts/sidebar/
+
+/**
+ * Note, the width of the sidebar will be determined by its content,
+ * so there's no need for this component to specify width (by default). 
+ */
+
+// .l-sidebar {
+//   display: flex;
+//   flex-wrap: wrap;
+//   gap: var(--sb-gap, var(--s0));
+
+//   > .is-sidebar {
+//     flex-grow: 1;
+//   }
+
+//   > :not(.is-sidebar) {
+//     flex-basis: 0;
+//     flex-grow: 999;
+//     min-width: 50%;
+//   }
+// }

@@ -1,0 +1,18 @@
+@use '../0-settings/gradients';
+
+.hr {
+  width: 100%;
+  background: linear-gradient(
+    90deg,
+    #{gradients.get(2, end)} 0%,
+    #{gradients.get(2, start)} 100%
+  );
+
+  hr {
+    border: none;
+    height: 0px;
+    border-top-width: 8px;
+    border-top-color: var(--bg);
+    border-top-style: dashed;
+  }
+}

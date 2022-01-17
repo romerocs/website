@@ -1,3 +1,5 @@
+const snowpackConfig = require('./snowpack.config');
+
 module.exports = function (eleventyConfig) {
   eleventyConfig.setTemplateFormats([
     // Templates:
@@ -14,6 +16,20 @@ module.exports = function (eleventyConfig) {
     'woff2',
   ]);
   eleventyConfig.addPassthroughCopy('static');
+
+  eleventyConfig.setBrowserSyncConfig({
+    files: ['src/**/*'],
+    rewriteRules: [
+      {
+          match: /(\/dist\/)/g,
+          fn: function (req, res, match) {
+              const port = snowpackConfig.devOptions.port;
+
+              return `http://localhost:${port}/dist/`;
+          }
+      }
+  ]
+  });
 
   return {
     dir: {

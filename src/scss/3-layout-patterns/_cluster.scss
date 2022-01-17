@@ -1,0 +1,9 @@
+//https://every-layout.dev/layouts/cluster
+
+.l-cluster {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: var(--cl-justify, flex-start);
+  align-items: center;
+  gap: var(--cl-gap, var(--s0));
+}

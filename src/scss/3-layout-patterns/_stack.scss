@@ -1,0 +1,8 @@
+//https://every-layout.dev/layouts/stack/
+
+.l-stack {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: var(--st-gap, var(--vertical-rhythm));
+}

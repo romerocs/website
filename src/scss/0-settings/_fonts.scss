@@ -1,0 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,700;1,700&family=Roboto&display=swap");
+
+$fraunces: "Fraunces", serif;
+$roboto: "Roboto", sans-serif;
+
+:root {
+  --serif: #{$fraunces};
+  --sans-serif: #{$roboto};
+}

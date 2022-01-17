@@ -1,0 +1,18 @@
+//https://every-layout.dev/layouts/switcher/
+
+// .l-switcher {
+//   display: flex;
+//   flex-wrap: wrap;
+//   gap: var(--sw-gap, var(--s0));
+
+//   > * {
+//     flex-grow: 1;
+//     flex-basis: calc((var(--sw-breakpoint, var(--bp-64)) - 100%) * 999);
+//   }
+
+//   //limits number of elements to less than 5
+//   > :nth-last-child(n + 5),
+//   > :nth-last-child(n + 5) ~ * {
+//     flex-basis: 100%;
+//   }
+// }

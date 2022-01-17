@@ -1,24 +1,46 @@
-# New Project
+I like this starter project
+https://github.com/josephdyer/skeleventy
 
-> ✨ Bootstrapped with Create Snowpack App (CSA).
+# CROMERO.IO WEBSITE DOCUMENTATION
 
-## Available Scripts
+## TODOS:
 
-### npm start
+- use link hover styles from codepen
+- USE BEM method
+- Replace functions with custom properties, where possible
+- Use font loading techniques for better performance
 
-Runs the app in the development mode.
-Open http://localhost:8080 to view it in the browser.
 
-The page will reload if you make edits.
-You will also see any lint errors in the console.
+Goals:
+Define my areas of expertise
+Define my values and thoughts on ethics
+Showcase tutorials and demos (for personal archiving)
+Codepens
+Gists
+Blog
 
-### npm run build
+## TUTORIAL OPTIONS
 
-Builds a static copy of your site to the `build/` folder.
-Your app is ready to be deployed!
+- using mask image with svg to change svg colors! https://css-tricks.com/almanac/properties/m/mask-image/
 
-**For the best production performance:** Add a build bundler plugin like [@snowpack/plugin-webpack](https://github.com/snowpackjs/snowpack/tree/main/plugins/plugin-webpack) or [snowpack-plugin-rollup-bundle](https://github.com/ParamagicDev/snowpack-plugin-rollup-bundle) to your `snowpack.config.mjs` config file.
+## Blog Post ideas
 
-### Q: What about Eject?
+  modular scale
+  css specificity
+  new css features we can use
 
-No eject needed! Snowpack guarantees zero lock-in, and CSA strives for the same.
+
+## Meetup Ideas
+- BEM vs CUBECSS
+- Greensock Basics
+- Principles of UX Animation: Create demos based on the article: https://uxdesign.cc/the-ultimate-guide-to-proper-use-of-animation-in-ux-10bd98614fa9
+- using native web components
+
+## Demo Ideas
+- test content visible prop
+- Move character along a path with keyboard
+  - create character design, background art, keyboard interactions.
+  - add buttons for interactions as well
+  - left and right
+  - jump button
+  - build with svelte?

@@ -1,0 +1,31 @@
+@use 'sass:color';
+
+$turquoise: #016d77;
+$seafoam: #02d4e7;
+$purple: #b002a1;
+$hotpink: #f702e3;
+$offwhite: #f9f4f0;
+$black: #0d1117;
+
+:root {
+  --turquoise: #{$turquoise};
+  --seafoam: #{$seafoam};
+  --purple: #{$purple};
+  --hotpink: #{$hotpink};
+  --offwhite: #{$offwhite};
+  --black: #{$black};
+  --primary: var(--turquoise);
+  --secondary: var(--purple);
+  --bg: var(--theme-light-bg);
+  --text-color: var(--theme-light-text);
+  --inline-code-block: #{color.scale($black, $lightness: 90%)};
+  --theme-light-text: var(--black);
+  --theme-light-bg: var(--offwhite);
+  --theme-dark-text: var(--offwhite);
+  --theme-dark-bg: var(--black);
+
+  &[theme="dark"] {
+    --bg: var(--theme-dark-bg);
+    --text-color: var(--theme-dark-text);
+  }
+}

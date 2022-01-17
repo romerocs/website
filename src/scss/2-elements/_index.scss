@@ -1,0 +1,118 @@
+/* ELEMENT STYLES */
+@use '../0-settings/scale';
+@use '../0-settings/breakpoints';
+
+:root {
+  font-family: var(--sans-serif);
+  line-height: scale.$ratio;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+  overflow-anchor: none;
+}
+
+*,
+::after,
+::before {
+  box-sizing: border-box;
+  font-family: inherit;
+  color: inherit;
+  overflow-wrap: break-word;
+  margin: 0;
+  padding: 0;
+  border: 0 solid;
+  max-width: 65ch;
+}
+
+body {
+  overflow-x: hidden;
+  font-family: var(--sans-serif);
+}
+
+html,
+body {
+  font-size: 100%;
+  color: var(--text-color);
+  background-color: var(--bg);
+}
+
+/* 
+
+--text-color: 
+*/
+
+html,
+body,
+div,
+header,
+nav,
+main,
+article,
+iframe,
+hr,
+footer {
+  max-width: none;
+}
+
+:is(h1, h2, h3, h4, h5, h6) {
+  font-family: var(--serif);
+  line-height: 1.1;
+}
+
+h1 {
+  font-size: clamp(var(--s2), calc(1rem + 5vw), var(--s4));
+  font-weight: 800;
+}
+
+h2 {
+  font-size: var(--s3);
+  font-weight: 800;
+}
+
+h3 {
+  font-size: var(--s2);
+  font-weight: 800;
+}
+
+:is(p, li) {
+  font-size: clamp(var(--s0), calc(1rem + 0.5vw), var(--s1));
+}
+
+a {
+  text-decoration-color: var(--primary);
+  text-decoration-thickness: 0.125em;
+  text-underline-offset: 1.5px;
+}
+
+img {
+  max-width: 100%;
+}
+
+li::marker {
+  color: var(--primary);
+}
+
+button {
+  color: white;
+  font-weight: bold;
+  background-color: var(--secondary);
+  padding: 8px 16px;
+  border-radius: 5px;
+}
+
+hr {
+  margin-bottom: 0;
+}
+
+ul {
+  margin-left: var(--s0);
+}
+
+p > code {
+  background-color: var(--inline-code-block);
+  padding: 5px 8px;
+  border-radius: var(--border-radius);
+}

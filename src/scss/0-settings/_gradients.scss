@@ -1,0 +1,28 @@
+@use 'colors' as c;
+
+$gradients: (
+  1: (
+    start: var(--turquoise),
+    end: var(--seafoam),
+  ),
+  2: (
+    start: var(--purple),
+    end: var(--hotpink),
+  ),
+);
+
+/**
+ * Example usage:
+ * 
+ * background: linear-gradient(
+    0deg,
+    #{gradient(1, start)} 0%,
+    #{gradient(1, end)} 100%
+  );
+ */
+@function get($number, $position) {
+  @if (map-has-key($gradients, $number)) {
+    @return map-get(map-get($gradients, $number), $position);
+  }
+  @error ('Cannot find #{$number} in $gradients map');
+}

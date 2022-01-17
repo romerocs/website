@@ -1,0 +1,27 @@
+@use './breakpoints' as *;
+@use './colors' as *;
+@use './scale' as *;
+
+:root {
+  @each $color, $hex in $colors {
+    --#{$color}: #{$hex};
+  }
+}
+
+:root {
+  @each $key, $value in $breakpoints {
+    --bp-#{$key}: #{$value}rem;
+  }
+}
+
+:root {
+  @each $scale, $value in $sizes {
+    --#{$scale}: #{$value}rem;
+  }
+}
+
+:root {
+  @each $scale, $value in $vertical-rhythm {
+    --#{$scale}: #{$value};
+  }
+}

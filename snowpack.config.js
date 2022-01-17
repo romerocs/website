@@ -1,11 +1,11 @@
-/** @type {import("snowpack").SnowpackUserConfig } */
-export default {
+module.exports = {
   mount: {
     _output: { url: '/', static: true },
-    src: { url: '/dist' },
+    "src/scss": { url: '/dist/css' },
+    "src/js": { url: '/dist/js' },
   },
   plugins: [
-    ['@snowpack/plugin-run-script', { cmd: 'eleventy', watch: '$1 --watch' }],
+    ['@snowpack/plugin-sass', { native: true}]
   ],
   routes: [
     /* Enable an SPA Fallback in development: */
@@ -17,10 +17,12 @@ export default {
   },
   packageOptions: {
     /* ... */
+    knownEntrypoints: ['gsap/gsap-core']
   },
   devOptions: {
     // Eleventy updates multiple files at once, so add a 300ms delay before we trigger a browser update
-    hmrDelay: 300,
+    port: 3000,
+    open: "none"
   },
   buildOptions: {
     /* ... */

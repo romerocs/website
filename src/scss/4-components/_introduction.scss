@@ -1,0 +1,11 @@
+.introduction {
+  font-family: var(--serif);
+  font-weight: 600;
+  min-height: calc(100vh - var(--header-height));
+  max-width: 65ch;
+  justify-content: center;
+}
+
+.introduction > * {
+  font-size: var(--s2);
+}
