@@ -1,4 +1,6 @@
 const snowpackConfig = require('./snowpack.config');
+const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
+const svgContents = require("eleventy-plugin-svg-contents");
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.setTemplateFormats([
@@ -31,6 +33,9 @@ module.exports = function (eleventyConfig) {
   ]
   });
 
+  eleventyConfig.addPlugin(svgContents);
+  eleventyConfig.addPlugin(syntaxHighlight);
+  
   return {
     dir: {
       input: '_template',

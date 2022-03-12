@@ -5,7 +5,15 @@ module.exports = {
     "src/js": { url: '/dist/js' },
   },
   plugins: [
-    ['@snowpack/plugin-sass', { native: true}]
+    [
+      '@snowpack/plugin-sass', 
+      { 
+        native: true,
+        compilerOptions: {
+          loadPath: "node_modules"
+        }
+      }
+    ]
   ],
   routes: [
     /* Enable an SPA Fallback in development: */
@@ -22,7 +30,8 @@ module.exports = {
   devOptions: {
     // Eleventy updates multiple files at once, so add a 300ms delay before we trigger a browser update
     port: 3000,
-    open: "none"
+    open: "none",
+    output: "stream"
   },
   buildOptions: {
     /* ... */

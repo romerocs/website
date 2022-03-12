@@ -3,16 +3,20 @@
     "dev:eleventy": "npx @11ty/eleventy --serve",
     "dev:snowpack": "snowpack dev",
     "start": "npm run dev:snowpack & npm run dev:eleventy",
+    "build": "npm run build:snowpack && npm run build:eleventy",
     "build:snowpack": "snowpack build",
+    "build:eleventy": "npx @11ty/eleventy",
     "test": "echo \"This template does not include a test runner by default.\" && exit 1",
     "format": "prettier --write \"src/**/*.js\"",
     "lint": "prettier --check \"src/**/*.js\""
   },
   "dependencies": {
-    "gsap": "^3.8.0"
+    "eleventy-plugin-svg-contents": "^0.7.0",
+    "gsap": "npm:@gsap/shockingly@^3.9.1"
   },
   "devDependencies": {
-    "@11ty/eleventy": "^0.12.0",
+    "@11ty/eleventy": "^1.0.0",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^4.0.0",
     "@snowpack/plugin-run-script": "^2.3.0",
     "@snowpack/plugin-sass": "^1.4.0",
     "prettier": "^2.2.1",
