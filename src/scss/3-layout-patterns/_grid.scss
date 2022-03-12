@@ -1,13 +1,11 @@
 //https://every-layout.dev/layouts/grid/
 
-// .l-grid {
-//   --gr-gap: var(--s0);
-
-//   display: grid;
-//   width: 100%;
-//   gap: var(--gr-gap);
-//   grid-template-columns: repeat(
-//     auto-fit,
-//     minmax(min(var(--min-width, 35ch), 100%), 1fr)
-//   );
-// }
+.l-grid {
+  display: grid;
+  width: 100%;
+  gap: var(--gr-gap, var(--s0));
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(min(var(--min-width), 100%), 1fr)
+  );
+}

@@ -1,1 +1,1 @@
-import './header_animation';
+import './loading_animation';

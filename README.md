@@ -4,12 +4,29 @@ https://github.com/josephdyer/skeleventy
 # CROMERO.IO WEBSITE DOCUMENTATION
 
 ## TODOS:
-
+Set up large file storage via git and netflify
+Dark mode theme switcher
+  - Animate the dark to light like a shade being pulled down and up
+  - check users theme settings and also provide a toggle
+WRITE BLOG POST ABOUT HUE LIGHTS!!!
+- low priority:
+  - randomized, logo animations, only appear at random intervals       
+    - bounces small than same size, transitions in a shadow
+    - the horizontal line turns into a smile
+    - turns into brief pacman animation, eating dots
+    
+- animate the "C" from black line to circle
+- squiggly line dividiers (animated?)
+- animated eyeball divider, moves as you scroll, for homepage only
+- change card border to use drop shadow
+- change gradient colors for logo
+- skip button for intro animation
+- set up a requirements doc for wishlist app
 - use link hover styles from codepen
 - USE BEM method
 - Replace functions with custom properties, where possible
 - Use font loading techniques for better performance
-
+- look into custom property internal variables
 
 Goals:
 Define my areas of expertise

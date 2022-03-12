@@ -1,6 +1,8 @@
 @use '0-settings/borders';
+@use '0-settings/colors';
 @use '0-settings/breakpoints';
 @use '0-settings/fonts';
+@use '0-settings/scale';
 
 @use '1-defaults/index' as defaults;
 
@@ -14,20 +16,26 @@
 @use '3-layout-patterns/stack';
 @use '3-layout-patterns/switcher';
 
-@use "4-components/animated-header";
-@use "4-components/code-block";
+@use "prismjs/themes/prism-okaidia.min.css";
+@use "4-components/card";
 @use "4-components/footer";
 @use "4-components/header";
 @use "4-components/hr";
 @use "4-components/introduction";
+@use "4-components/loading-animation";
 
 @use '5-utilities/accessibility';
 @use '5-utilities/layout-display';
 @use '5-utilities/layout-flexbox';
 @use '5-utilities/layout-floats';
+@use '5-utilities/layout-overflow';
 @use '5-utilities/layout-position';
 @use '5-utilities/layout-spacing';
 @use '5-utilities/layout-widths';
 @use '5-utilities/theming-borders';
 @use '5-utilities/theming-colors';
 @use '5-utilities/theming-typography';
+
+.gs-dev-tools {
+  z-index: 5;
+}

@@ -4,11 +4,15 @@
     <meta charset="utf-8" />
     <link rel="icon" href="/static/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Web site created using create-snowpack-app" />
+    <meta name="description" content="Page Descriptioin" />
     <link rel="stylesheet" type="text/css" href="/dist/css/index.css" />
-    <title>Snowpack Apps</title>
+    <title>[Page Title]</title>
   </head>
-  <body>
+  <body class="{% if is_home %}u-overflow-hidden{% endif %}">
+    {% if is_home %}
+      {% include 'components/loading-animation.njk' %}
+    {% endif %}
+
     <div class="not-footer">
       {% include 'components/header.njk' %}
                               

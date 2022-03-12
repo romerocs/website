@@ -1,0 +1,36 @@
+<svg>
+  <defs>
+    <clipPath id="clip">
+      <use href="#puffy-circle" />
+    </clipPath>
+    <linearGradient id="gradient">
+      <stop id="offsetStart" offset="0%" stop-color="red" />
+      <stop id="offsetEnd" offset="100%" stop-color="blue" />
+    </linearGradient>
+  </defs>
+
+  <path id="puffy-circle" d="M250,125.3c0-12.2-6.4-20.1-13-23.6c4.6-5.8,7.4-15.6,2.5-26.8c-4.1-9.4-11.3-14.2-17.9-15.8
+	c0.9-6.7-0.9-15.1-8.2-22.4c-8.6-8.6-18.8-9.6-25.9-7.5c-0.9-7.4-5.9-16.3-17.2-20.7c-9.6-3.7-18-2-23.8,1.5c-4-5.4-11.2-10-21.5-10
+	c-12.2,0-20.1,6.5-23.6,13c-5.8-4.6-15.7-7.3-26.8-2.4c-9.4,4.2-14.2,11.3-15.8,17.9c-6.7-0.9-15.1,0.9-22.4,8.2
+	c-8.6,8.6-9.6,18.8-7.4,25.9c-7.4,0.9-16.3,5.9-20.7,17.3c-3.5,9.2-2,17.4,1.2,23.1C4.4,107.1,0,114.2,0,124
+	c-0.1,12.2,6.3,20.1,12.9,23.7c-4.6,5.8-7.5,15.6-2.6,26.8c4.1,9.5,11.2,14.3,17.8,15.9c-1,6.7,0.8,15.1,8.1,22.4
+	c8.6,8.7,18.7,9.7,25.8,7.6c0.8,7.4,5.8,16.3,17.1,20.8c9.6,3.8,18,2.1,23.8-1.4c4.1,5.4,11.3,10.1,21.6,10.1
+	c12.2,0.1,20.1-6.4,23.6-12.9c5.8,4.6,15.6,7.4,26.8,2.6c9.5-4.1,14.2-11.2,15.8-17.8c6.7,0.9,15.1-0.9,22.4-8.1
+	c8.7-8.6,9.7-18.8,7.5-25.9c7.4-0.9,16.3-5.8,20.7-17.2c3.8-9.6,2.1-18-1.4-23.8C245.3,142.9,250,135.7,250,125.3z" />
+
+  <rect id="bg-static" x="0" y="0" width="100vw" height="100vh" fill="url(#gradient)" />
+
+  <rect id="bg-animated" class="loading-animation__hidden" x="0" y="0" width="100vw" height="100vh" fill="url(#gradient)" clip-path="url(#clip)" />
+
+  <g class="loading-animation__logotype">
+    <path class="final loading-animation__hidden" d="M125,126.7v-3.3h62.5C186.7,89.5,159,62.5,125,62.5c-34.5,0-62.5,28-62.5,62.5s28,62.5,62.5,62.5
+		c34,0,61.7-27,62.5-60.8H125z" fill="black" />
+    <path class="mask loading-animation__hidden" d="M125,126.7h62.5c0-0.5,0-1.1,0-1.7c0-0.5,0-1.2,0-1.7H125V126.7z" fill="black" />
+    <path class="loading-animation-start scale-x" d="M125,123.3H62.5c0,0.5,0,1.1,0,1.7c0,0.5,0,1.2,0,1.7H125V123.3z" />
+    <path id="morph-start" class="morph morph-start loading-animation__hidden"
+      d="M125,123.3H62.5c0,0.5,0,1.1,0,1.7c0,0.5,0,1.2,0,1.7H125V123.3z" />
+    <path id="morph-end" class="morph morph-end path-to-clone loading-animation__hidden"
+      d="M125,123.3L67.8,99.7c-3.4,7.8-5.3,16.3-5.3,25.3s1.9,17.6,5.3,25.3l57.2-23.7V123.3z" />
+    <g class="rotate loading-animation__hidden"></g>
+  </g>
+</svg>

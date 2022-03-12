@@ -1,0 +1,33 @@
+.card {
+  --card-color: var(--black);
+
+  background-color: var(--white);
+  padding: var(--s1);
+  border-radius: 5px;
+  border-width: var(--border-thickness);
+  border-color: var(--card-color);
+  position: relative;
+}
+
+.card h2 {
+  color: var(--card-color);
+  font-size: var(--s2);
+}
+
+.card a {
+  font-size: inherit;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+}
+
+.card--placeholder {
+  --card-color: var(--warmgray);
+  background-color: transparent;
+}

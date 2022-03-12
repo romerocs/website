@@ -1,6 +1,10 @@
 ---
+tags: post
 layout: layouts/article.njk
+title: My No-Frills Intro to CSS Custom Properties
 ---
+
+<!-- CREATE A TABLE OF CONTENTS!! -->
 
 # Intro to CSS Variables
 
@@ -51,8 +55,6 @@ So a few more things to be aware of for fallback values.
 
 In this code-block we have a few examples of fallbacks being used. And you'll notice that for the paragraph tag we're actually using a custom property as the fallback.
 
-And to get even crazier the last ruleset for the `footer p` the fallback values have their own fallback ****values! There is technically no limit to the number of times you can nest fallbacks. But be careful, because this can cause performance issues because it takes more time for the browser to parse each value.
-
 ```css
 main {
   background-color: var(--main-bg-color, #ccc);
@@ -70,9 +72,12 @@ footer p {
 }
 ```
 
+And to get even crazier the last ruleset for the `footer p` the fallback values have their own fallback values! There is technically no limit to the number of times you can nest fallbacks. But be careful, because this can cause performance issues because it takes more time for the browser to parse each value.
+
+
 ### How var() handles commas
 
-Another interesting feature of the `var()` function is that everything between first comma after the property name and the end of the function is considered the fallback value. So if you were to use a comma delimited value as you can for setting the font-family property, that would be totally valid.
+Another interesting feature of the `var()` function is that everything between the first comma after the property name and the end of the function is considered the fallback value. So if you were to use a comma delimited value as you can for setting the font-family property, that would be totally valid.
 
 ```css
 p {
@@ -80,9 +85,15 @@ p {
 }
 ```
 
-This Pen demonstrates this behavior by using a comma separated list of fonts as the fallback for the h1's font-family property. In the rule for the `h1` I am using a `--font-family` custom property and using a font list as the fallback. And I am setting the first font in the list to an invalid font-name to ensure that it loads the next font, in my case I have Impact loaded on my machine so that's what you see.
+The example below demonstrates this behavior by using a comma separated list of fonts as the fallback for the h1's font-family property. In the rule for the `h1` I am using a `--font-family` custom property and using a font list as the fallback. And I am setting the first font in the list to an invalid font-name to ensure that it loads the next font, in my case I have Impact loaded on my machine so that's what I see.
 
-[https://codepen.io/romerocs/pen/YzryLYe](https://codepen.io/romerocs/pen/YzryLYe)
+<figure class="video_container">
+<iframe height="400" style="width: 100%;" scrolling="no" title="Using commas in the var() function" src="https://codepen.io/romerocs/embed/preview/YzryLYe?default-tab=css%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href="https://codepen.io/romerocs/pen/YzryLYe">
+  Using commas in the var() function</a> by Chris Romero (<a href="https://codepen.io/romerocs">@romerocs</a>)
+  on <a href="https://codepen.io">CodePen</a>.
+</iframe>
+</figure>
 
 ### Inheritance
 
@@ -118,30 +129,32 @@ p {
 
 So lets say you have a component like a button, and you want the ability to easily override the default background color of the button. There are 2 approaches you could take with different implications.
 
-In the this code-block there are 2 button components. The button in **Approach A** explicitly sets the `--btn-bg-color` custom prop to a global custom prop called `var(--primary-color)` and then uses that property to set the value for the background color. 
-
-The button in **Approach B** component does **not** explicitly set the `--btn-bg-color` prop. Instead we use the fallback argument in the `var()` function to set the default to `var(--primary-color)` .
-
-**Approach A**
+In the the example below there are 2 button components. The button in **Approach A** explicitly sets the `--btn-bg-color` custom prop to a global custom prop called `var(--primary-color)` and then uses that property to set the value for the background color. 
 
 ```css
+//APPROACH A
 .btn {
   --btn-bg-color: var(--primary-color);
   background-color: var(--btn-bg-color);
 }
-```
 
-**Approach B**
-
-```css
+//APPROACH B
 .btn {
   background-color: var(--btn-bg-color, var(--primary-color));
 }
 ```
 
-So what is the point of this exactly? Well they will both achieve their purpose of setting the background color to `var(--primary-color)` but with one key difference. In this Pen there are 2 rows of buttons of different colors wrapped in a `p` tag. Both `p` tags have in inline style assigning the color `--purple` to the `--btn-bg-color` prop. However only the button row using the fallback approach has its color set to purple. Because the buttons using the fallback approach do not have the `--btn-bg-color` set, it inherits the color from its nearest ancestor.
+The button in **Approach B** component does **not** explicitly set the `--btn-bg-color` prop. Instead we use the fallback argument in the `var()` function to set the default to `var(--primary-color)` .
 
-[https://codepen.io/romerocs/pen/NWaPzbp](https://codepen.io/romerocs/pen/NWaPzbp)
+So what is the point of this exactly? Well they will both achieve their purpose of setting the background color to `var(--primary-color)` but with one key difference. In the example below there are 2 rows of buttons of different colors wrapped in a `p` tag. Both `p` tags have in inline style assigning the color `--purple` to the `--btn-bg-color` prop. However only the button row using the fallback approach has its color set to purple. Because the buttons using the fallback approach do not have the `--btn-bg-color` set, it inherits the color from its nearest ancestor.
+
+<figure class="video_container">
+<iframe height="400" style="width: 100%;" scrolling="no" title="CSS Custom Properties: Using Fallback Values" src="https://codepen.io/romerocs/embed/preview/NWaPzbp?default-tab=css%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href="https://codepen.io/romerocs/pen/NWaPzbp">
+  CSS Custom Properties: Using Fallback Values</a> by Chris Romero (<a href="https://codepen.io/romerocs">@romerocs</a>)
+  on <a href="https://codepen.io">CodePen</a>.
+</iframe>
+</figure>
 
 This isn't to say that you should use one approach over the other. The purpose is just to demonstrate the role that inheritance plays when using custom properties.
 
@@ -159,21 +172,44 @@ So that means you can assign any value you want to a CSS custom property and it'
 
 ### How the browser handles invalid values
 
-In this Pen I have 2 `h2` 's with different classes. The first has the font size set to green and the second has the font-size set to a custom prop of `--var` with a value of green. And you can see they are actually treated differently by the browser. **(open devtools)** If you look in devtools you can see that the browser knows that the font-size for the first h2 is invalid. However for the second h2 being set by the custom prop, the browser still considers the value valid. So it shows that we kind of lose the ability to debug our css a little when using custom props.
+Below you can see there are two h2's with different classes. The first has the font size set to green and the second has the font-size set to a custom prop of `--var` with a value of green. 
 
-[https://codepen.io/romerocs/pen/XWeKKXe](https://codepen.io/romerocs/pen/XWeKKXe)
+<figure>
+  <iframe height="400" style="width: 100%;" scrolling="no" title="How the browser handles invalid values" src="https://codepen.io/romerocs/embed/preview/XWeKKXe?default-tab=css%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+    See the Pen <a href="https://codepen.io/romerocs/pen/XWeKKXe">
+    How the browser handles invalid values</a> by Chris Romero (<a href="https://codepen.io/romerocs">@romerocs</a>)
+    on <a href="https://codepen.io">CodePen</a>.
+  </iframe>
+</figure>
+
+And you can see they are actually treated differently by the browser. If you look in devtools you can see that the browser knows that the font-size for the first h2 is invalid. 
+
+
+<div class="l-switcher">  
+  <figure>
+    <img src="/static/posts/intro-to-css-variables/invalid-value.png" alt="Chrome Devtools Screenshot showing how browsers typically handle invalid values">
+    <figcaption>How browsers typically handle invalid values</figcaption>
+  </figure>
+
+  <figure>
+    <img src="/static/posts/intro-to-css-variables/invalid-value-custom-prop.png" alt="Chrome Devtools Screenshot showing how browsers handle an invalid value of a custom property.">
+    <figcaption>How browsers handle an invalid value of a custom property.</figcaption>
+  </figure>
+</div>
+
+However for the second h2 being set by the custom prop, the browser still considers the value valid. So it shows that we kind of lose the ability to debug our css a little when using custom props.
 
 ### The Toggle Trick
 
-This actually leads to an [interesting and (maybe) unanticipated side effect](https://css-tricks.com/the-css-custom-property-toggle-trick/). Because any value is considered valid, even white space can be used. With this you can create a kind of if/else statement to toggle a bunch of values at one time. Pretty neat.
+This actually leads to an [interesting and (maybe) unanticipated side effect](https://css-tricks.com/the-css-custom-property-toggle-trick/). Because any value is considered valid, even white space can be used. With this you can create a kind of if/else statement to toggle a bunch of values at one time.
 
-*[ open mac settings → accessibility → display → reduce motion ]*
+In the example below I've created a css variable called  `--reduce-motion-toggle` with a value of `initial`. I am using that variable as the animation name with the fallback value being the rotate animation that I've defined. So when the browser encounters the invalid value of the variable, it falls back to the valid value. I've then created a media query to detect when the user prefers reduced motion and assign it a value of " " (ie whitespace!). So when users have that preference, the animation will no longer work, because of course " " (whitespace) is not the name of an actual animation, but it is accepted by the browser as a valid value!
 
-[open pen in full screen]
-
-In the Pen below, I've created a css variable called  `--reduce-motion-toggle` with a value of `initial`. I am using that variable as the animation name with the fallback value being the rotate animation that I've defined. So when the browser encounters the invalid value of the variable, it falls back to the valid value. I've then created a media query to detect when the user prefers reduced motion and assign it a value of " " (ie whitespace!). So when users have that preference, the animation will no longer work, because of course " " (whitespace) is not the name of an actual animation, but it is accepted by the browser as a valid value! Wow right!?
-
-[https://codepen.io/romerocs/pen/zYdRPyG](https://codepen.io/romerocs/pen/zYdRPyG)
+<iframe height="400" style="width: 100%;" scrolling="no" title="CSS Custom Property Toggle" src="https://codepen.io/romerocs/embed/zYdRPyG?default-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href="https://codepen.io/romerocs/pen/zYdRPyG">
+  CSS Custom Property Toggle</a> by Chris Romero (<a href="https://codepen.io/romerocs">@romerocs</a>)
+  on <a href="https://codepen.io">CodePen</a>.
+</iframe>
 
 Now do I think we should all start using this in our production CSS? Maybe not. It's not clear at first glance what's going on if you're not aware of this side effect, so it could create more confusion in the long run. But I do think it points to how new features can be used in ways that go beyond what the spec authors originally intended, and it shows how there is a desire for something like a boolean type variables in CSS.
 
@@ -241,7 +277,11 @@ In this second example we use the `--scale` and base size `--s0` custom props to
 /* credit: https://every-layout.dev/rudiments/modular-scale/ */
 ```
 
-[https://codepen.io/romerocs/pen/abLoBBb](https://codepen.io/romerocs/pen/abLoBBb)
+<iframe height="400" style="width: 100%;" scrolling="no" title="Modular Scale" src="https://codepen.io/romerocs/embed/abLoBBb?default-tab=css%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href="https://codepen.io/romerocs/pen/abLoBBb">
+  Modular Scale</a> by Chris Romero (<a href="https://codepen.io/romerocs">@romerocs</a>)
+  on <a href="https://codepen.io">CodePen</a>.
+</iframe>
 
 ### Drawbacks and gotchas
 
@@ -268,7 +308,7 @@ body {
 }
 ```
 
-In the future we may be able to create custom media queries. There is currently a [spec](https://www.w3.org/TR/mediaqueries-5/#custom-mq) for using environment variables for media queries (think iphone notch env var). There is also a custom media PostCSS plugin.
+In the future we may be able to create custom media queries using [environmental variables](https://developer.mozilla.org/en-US/docs/Web/CSS/env()). There is currently a [spec](https://www.w3.org/TR/mediaqueries-5/#custom-mq) for using environment variables for media queries.
 
 ```css
 @custom-media --narrow-window (max-width: 30em);
@@ -326,27 +366,33 @@ h1 {
 
 The difference with css custom props is that since they are defined in the css, they can be viewed and changed in the browser. When you open your dev tools in your browser of choice, all the properties you have defined on the page will be exposed in your styles, which is a nice convenience when you need to quickly reference them.
 
-[https://codepen.io/romerocs/pen/MWvNzbe](https://codepen.io/romerocs/pen/MWvNzbe)
-
 ### You can update values inline
 
 CSS custom properties are evaluated at run-time by the browser, which means you can update your properties right in the markup. This is a **huge** advantage over Sass. 
 
-In the Pen below I've created a simple card component. I'm using a custom property called `--card-color` to set the color of the border, heading and button. The first card doesn't have the color prop set so it uses the fallback color.
+In the example below I've created a simple card component. I'm using a custom property called `--card-color` to set the color of the border, heading and button. The first card doesn't have the color property set so it uses the fallback color.
 
 In the markup for the second card I set the card color via the style attribute. And with just that one inline style I'm able to update the color in 3 places! 
 
-[https://codepen.io/romerocs/pen/NWaqLbm](https://codepen.io/romerocs/pen/NWaqLbm)
+<iframe height="400" style="width: 100%;" scrolling="no" title="Typical Card Component" src="https://codepen.io/romerocs/embed/NWaqLbm?default-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href="https://codepen.io/romerocs/pen/NWaqLbm">
+  Typical Card Component</a> by Chris Romero (<a href="https://codepen.io/romerocs">@romerocs</a>)
+  on <a href="https://codepen.io">CodePen</a>.
+</iframe>
 
 ### Great for creating dark themes
 
 Dark mode themes have become increasingly popular, and custom props makes implementing them much easier.
 
-In the CSS of the Pen below I've created some color props to set up the dark mode theme. The generic `--bg-color` and `--txt-color` props are assigned to the body element. I then added some light and dark themed color props and set up the generic props to use the light theme by default.
+In the example below I've created some color props to set up the dark mode theme. The generic `--bg-color` and `--txt-color` properties are assigned to the body element. I then added some light and dark themed color props and set up the generic props to use the light theme by default.
 
 Then we can use a media query to check if the user has dark mode set via their operating system settings. The benefit of this approach is that we are able to make global changes to our styles with very little code.
 
-[https://codepen.io/romerocs/pen/eYzmbMR](https://codepen.io/romerocs/pen/eYzmbMR)
+<iframe height="400" style="width: 100%;" scrolling="no" title="Theming with CSS Custom Properties" src="https://codepen.io/romerocs/embed/eYzmbMR?default-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href="https://codepen.io/romerocs/pen/eYzmbMR">
+  Theming with CSS Custom Properties</a> by Chris Romero (<a href="https://codepen.io/romerocs">@romerocs</a>)
+  on <a href="https://codepen.io">CodePen</a>.
+</iframe>
 
 And that's a very high level overview of CSS Custom Properties. I feel like they are slowly being adopted and introduced into production code more and more, so I think as developers start to use them more we'll start to see them used in creative ways beyond what I've described here.
 
@@ -364,9 +410,3 @@ And that's a very high level overview of CSS Custom Properties. I feel like they
 10. [PostCSS Custom Properties polyfill](https://github.com/postcss/postcss-custom-properties)
 11. [Custom Media Queries specification](https://www.w3.org/TR/mediaqueries-5/#custom-mq)
 12. [caniuse.com](http://caniuse.com)
-
-### CSS Grid Resources
-
-- [https://labs.jensimmons.com/](https://labs.jensimmons.com/)
-- [https://gridbyexample.com/](https://gridbyexample.com/)
-- [https://cssgrid-generator.netlify.app/](https://cssgrid-generator.netlify.app/)

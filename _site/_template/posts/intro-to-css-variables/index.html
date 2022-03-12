@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/static/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Web site created using create-snowpack-app" />
+    <link rel="stylesheet" type="text/css" href="/dist/css/index.css" />
+    <title>Snowpack Apps</title>
+  </head>
+  <body>
+    <div class="not-footer">
+      <header class='header'>
+      <div>
+        <a href="/">
+          
+          <span class="u-show-for-sr">Chris Romero - Frontend Web Developer</span>
+        </a>
+      </div>
+
+      <div style="overflow: hidden;">
+  <div class="animated-pattern">
+    <svg width="100%" height="100%">
+      <defs>
+        <filter id="shadow">
+          <feDropShadow dx="1" dy="0.5" stdDeviation="1" flood-color="#000000" flood-opacity="0.25" />
+        </filter>
+
+        <pattern id="bg" patternUnits="userSpaceOnUse" width="1700" height="72" viewBox="0 0 850 36">
+          <path fill="var(--bg)" d="M850,0c-8.8,0-16.4,4.3-21.3,10.8s-12.4,10.9-21.2,10.9s-16.4-4.3-21.3-10.8S773.8,0,765,0
+s-16.4,4.3-21.3,10.8s-12.4,10.9-21.2,10.9s-16.4-4.3-21.3-10.8S688.8,0,680,0s-16.4,4.3-21.3,10.8s-12.4,10.9-21.2,10.9
+s-16.4-4.3-21.3-10.8S603.8,0,595,0s-16.4,4.3-21.3,10.8s-12.4,10.9-21.2,10.9s-16.4-4.3-21.3-10.8S518.8,0,510,0
+s-16.4,4.3-21.3,10.8s-12.4,10.9-21.2,10.9s-16.4-4.3-21.3-10.8S433.8,0,425,0s-16.4,4.3-21.3,10.8s-12.4,10.9-21.2,10.9
+s-16.4-4.3-21.3-10.8S348.8,0,340,0s-16.4,4.3-21.3,10.8s-12.4,10.9-21.2,10.9s-16.4-4.3-21.3-10.8S263.8,0,255,0
+s-16.4,4.3-21.3,10.8s-12.4,10.9-21.2,10.9s-16.4-4.3-21.3-10.8S178.8,0,170,0s-16.4,4.3-21.3,10.8s-12.4,10.9-21.2,10.9
+s-16.4-4.3-21.3-10.8S93.8,0,85,0S68.6,4.3,63.7,10.8S51.3,21.7,42.5,21.7s-16.4-4.3-21.3-10.8S8.8,0,0,0v10.8V36h85h85h85h85h85h85
+h85h85h85h85V0z" />
+        </pattern>
+      </defs>
+
+      <rect width="100%" height="100%" fill="url(#bg)" />
+    </svg>
+  </div>
+</div>
+</header>
+                              
+      <article class='l-center' style='--cr-mw: var(--bp-48)'>
+  <div class='l-stack'>
+      <!-- CREATE A TABLE OF CONTENTS!! -->
+<h1>Intro to CSS Variables</h1>
+<h3>What is a CSS Custom Property?</h3>
+<p>Per <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/--*">MDN</a>:</p>
+<blockquote>
+<p>Property names that are prefixed with <code>--</code>, like <code>--example-name</code>, represent <em>custom properties</em> that contain a value that can be used in other declarations using the <code>[var()](https://developer.mozilla.org/en-US/docs/Web/CSS/var())</code> function.</p>
+</blockquote>
+<p>So it's basically a variable that we can use in native CSS now, and in order to use the variable to set a css property like <code>font-family</code> for instance, you use the <code>var()</code> function. The idea of the variable exists in most (if not all) of programming languages. The unique property of CSS Custom Properties is that they are subject to the cascade and inherit their value from their parent, just like CSS selectors. And unlike variables in other languages, they must be assigned to a selector.</p>
+<h3>Declaring a custom property</h3>
+<p>Custom properties begin with 2 double dashes '—', followed by the name of your property. The value can be any valid CSS value.</p>
+<p>The custom property's scope is defined by its selector. There is technically no &quot;global scope&quot; in CSS so it is common to add custom properties to the <code>::root</code> pseudo-class when it is needed globally. It is also perfectly safe to assign your global values to the <code>body</code> element.</p>
+<p><strong>Global</strong></p>
+<pre><code class="language-css">:root {
+  --font-family: sans-serif;
+}
+</code></pre>
+<p><strong>Local</strong></p>
+<pre><code class="language-css">p {
+  --my-custom-property: value;
+} 
+</code></pre>
+<h3>The var() function</h3>
+<p>When you want to use a custom property you use the <code>var()</code> . The <code>var()</code> function actually takes 2 arguments, the first is the property name itself and in the second argument you can specify an optional fallback value if property name is either invalid or undefined.</p>
+<pre><code class="language-css">p {
+	font-family: var(--sans-serif, sans-serif);
+}
+</code></pre>
+<h3>Fallback values</h3>
+<p>So a few more things to be aware of for fallback values.</p>
+<p>In this code-block we have a few examples of fallbacks being used. And you'll notice that for the paragraph tag we're actually using a custom property as the fallback.</p>
+<p>And to get even crazier the last ruleset for the <code>footer p</code> the fallback values have their own fallback ****values! There is technically no limit to the number of times you can nest fallbacks. But be careful, because this can cause performance issues because it takes more time for the browser to parse each value.</p>
+<pre><code class="language-css">main {
+  background-color: var(--main-bg-color, #ccc);
+}
+
+p {
+  font-size: var(--paragraph-font-size, var(--global-font-size));
+}
+
+footer p {
+  font-size: var(
+		--footer-paragraph-font-size, 
+		var(--font-size-small, var(--global-font-size))
+	);
+}
+</code></pre>
+<h3>How var() handles commas</h3>
+<p>Another interesting feature of the <code>var()</code> function is that everything between first comma after the property name and the end of the function is considered the fallback value. So if you were to use a comma delimited value as you can for setting the font-family property, that would be totally valid.</p>
+<pre><code class="language-css">p {
+	font-family: var(--font-family, system-ui, sans-serif);
+}
+</code></pre>
+<p>This Pen demonstrates this behavior by using a comma separated list of fonts as the fallback for the h1's font-family property. In the rule for the <code>h1</code> I am using a <code>--font-family</code> custom property and using a font list as the fallback. And I am setting the first font in the list to an invalid font-name to ensure that it loads the next font, in my case I have Impact loaded on my machine so that's what you see.</p>
+<p><a href="https://codepen.io/romerocs/pen/YzryLYe">https://codepen.io/romerocs/pen/YzryLYe</a></p>
+<h3>Inheritance</h3>
+<p>Per MDN:</p>
+<blockquote>
+<p>Custom properties are subject to the cascade and inherit their value from their parent.</p>
+</blockquote>
+<p>So custom properties behave just like css properties when it comes to inheritance. You can create globally available values by setting it at the top of the cascade and you can override those values where it's needed.</p>
+<pre><code class="language-css">body {
+  --text-color: #000000;
+}
+
+p {
+  color: var(--text-color); /* #000000 */
+}
+</code></pre>
+<pre><code class="language-css">body {
+  --text-color: #000000;
+}
+
+p {
+  --text-color: #2f2f2f;
+  color: var(--text-color); /* #2f2f2f */
+}
+</code></pre>
+<h3>Overriding Defaults</h3>
+<p>So lets say you have a component like a button, and you want the ability to easily override the default background color of the button. There are 2 approaches you could take with different implications.</p>
+<p>In the this code-block there are 2 button components. The button in <strong>Approach A</strong> explicitly sets the <code>--btn-bg-color</code> custom prop to a global custom prop called <code>var(--primary-color)</code> and then uses that property to set the value for the background color.</p>
+<p>The button in <strong>Approach B</strong> component does <strong>not</strong> explicitly set the <code>--btn-bg-color</code> prop. Instead we use the fallback argument in the <code>var()</code> function to set the default to <code>var(--primary-color)</code> .</p>
+<p><strong>Approach A</strong></p>
+<pre><code class="language-css">.btn {
+  --btn-bg-color: var(--primary-color);
+  background-color: var(--btn-bg-color);
+}
+</code></pre>
+<p><strong>Approach B</strong></p>
+<pre><code class="language-css">.btn {
+  background-color: var(--btn-bg-color, var(--primary-color));
+}
+</code></pre>
+<p>So what is the point of this exactly? Well they will both achieve their purpose of setting the background color to <code>var(--primary-color)</code> but with one key difference. In this Pen there are 2 rows of buttons of different colors wrapped in a <code>p</code> tag. Both <code>p</code> tags have in inline style assigning the color <code>--purple</code> to the <code>--btn-bg-color</code> prop. However only the button row using the fallback approach has its color set to purple. Because the buttons using the fallback approach do not have the <code>--btn-bg-color</code> set, it inherits the color from its nearest ancestor.</p>
+<p><a href="https://codepen.io/romerocs/pen/NWaPzbp">https://codepen.io/romerocs/pen/NWaPzbp</a></p>
+<p>This isn't to say that you should use one approach over the other. The purpose is just to demonstrate the role that inheritance plays when using custom properties.</p>
+<h3>Valid Values</h3>
+<p>From MDN:</p>
+<blockquote>
+<p>The classical CSS concept of validity, tied to each property, is
+not very useful in regard to custom properties. When the values of the
+custom properties are parsed, the browser doesn't know where they will
+be used, so must, therefore, consider nearly all values as <em>valid</em>.</p>
+</blockquote>
+<p>So that means you can assign any value you want to a CSS custom property and it's validity will be determined by whether you are using the variable in a way that the browser can understand.</p>
+<h3>How the browser handles invalid values</h3>
+<p>In this Pen I have 2 <code>h2</code> 's with different classes. The first has the font size set to green and the second has the font-size set to a custom prop of <code>--var</code> with a value of green. And you can see they are actually treated differently by the browser. <strong>(open devtools)</strong> If you look in devtools you can see that the browser knows that the font-size for the first h2 is invalid. However for the second h2 being set by the custom prop, the browser still considers the value valid. So it shows that we kind of lose the ability to debug our css a little when using custom props.</p>
+<p><a href="https://codepen.io/romerocs/pen/XWeKKXe">https://codepen.io/romerocs/pen/XWeKKXe</a></p>
+<h3>The Toggle Trick</h3>
+<p>This actually leads to an <a href="https://css-tricks.com/the-css-custom-property-toggle-trick/">interesting and (maybe) unanticipated side effect</a>. Because any value is considered valid, even white space can be used. With this you can create a kind of if/else statement to toggle a bunch of values at one time. Pretty neat.</p>
+<p><em>[ open mac settings → accessibility → display → reduce motion ]</em></p>
+<p>[open pen in full screen]</p>
+<p>In the Pen below, I've created a css variable called  <code>--reduce-motion-toggle</code> with a value of <code>initial</code>. I am using that variable as the animation name with the fallback value being the rotate animation that I've defined. So when the browser encounters the invalid value of the variable, it falls back to the valid value. I've then created a media query to detect when the user prefers reduced motion and assign it a value of &quot; &quot; (ie whitespace!). So when users have that preference, the animation will no longer work, because of course &quot; &quot; (whitespace) is not the name of an actual animation, but it is accepted by the browser as a valid value! Wow right!?</p>
+<p><a href="https://codepen.io/romerocs/pen/zYdRPyG">https://codepen.io/romerocs/pen/zYdRPyG</a></p>
+<p>Now do I think we should all start using this in our production CSS? Maybe not. It's not clear at first glance what's going on if you're not aware of this side effect, so it could create more confusion in the long run. But I do think it points to how new features can be used in ways that go beyond what the spec authors originally intended, and it shows how there is a desire for something like a boolean type variables in CSS.</p>
+<h3>Custom props and <code>calc()</code></h3>
+<p>The <code>calc()</code> function gives us the ability to perform mathematical calculations in our css. You can use arithmetic operators for addition, subtraction, multiplication and division and the browser will return the result at runtime. You can even use different unit types.</p>
+<p><strong>Without <code>calc()</code></strong></p>
+<pre><code class="language-css">.width-one-third {
+	width: 33.33333%; 
+}
+</code></pre>
+<p><strong>Let the browser do the math!</strong></p>
+<pre><code class="language-css">.width-one-third {
+   width: calc(100% / 3);
+}
+</code></pre>
+<p><strong>Combining Units</strong></p>
+<pre><code class="language-css">.inset-container {
+  width: calc(100% - 30px);
+}
+</code></pre>
+<p>And when you combine <code>calc()</code> with custom props, you now have a powerful way to create dynamic layouts.</p>
+<h3>Modular Scale</h3>
+<p>One thing I like to do with all my projects is to create what is called a <strong>modular scale</strong> for font-sizes and spacing. Basically a modular scale is a set of numbers that increase and decrease in value by a set ratio. The Golden Mean is a ratio that has been used by architects and artists for centuries to create visual harmony in their work.  And you can actually incorporate a modular scale quite easily by combining css custom props and the calc function.</p>
+<h3>Creating a modular scale</h3>
+<p>So let's see how we would set up a modular scale using custom props.</p>
+<p>In this example we have 2 custom properties. The first is our scale ratio. <a href="http://Type-Scale.com">Type-Scale.com</a> is a great resource for generating typographic scales. The second property is our base size, 1rem (the <strong>s</strong> prefix stands for 'scale'). This will be the foundation for our modular scale.</p>
+<p>In this second example we use the <code>--scale</code> and base size <code>--s0</code> custom props to build out our modular scale. To get our next size up <code>--s1</code> we use the calc function to multiply <code>--s0</code>  by the <code>--ratio</code> prop. For each new size you multiply the previous size prop by the ratio property. And conversely to achieve values smaller than the base size you divide by the scale property. And this is all made possible by the ability of <code>calc()</code> to perform mathematical operations on css length units like rem (or px, ems, etc).</p>
+<p><strong>The basis of our scale</strong></p>
+<pre><code class="language-css">:root {
+  --ratio: 1.618
+  --s0: 1rem;
+}
+</code></pre>
+<p><strong>Adding more sizes</strong></p>
+<pre><code class="language-css">:root {
+  --ratio: 1.618; /* Golden Mean */
+  --s-1: calc(var(--s0) / var(--ratio)); /*  calc(1rem / 1.5) = 0.66rem */
+  --s0: 1rem;
+  --s1: calc(var(--s0) * var(--ratio)); /*   calc(1rem * 1.5) = 1.5rem */
+  --s2: calc(var(--s1) * var(--ratio)); /*   calc(1.5rem * 1.5) = 2.25rem */
+}
+/* credit: https://every-layout.dev/rudiments/modular-scale/ */
+</code></pre>
+<p><a href="https://codepen.io/romerocs/pen/abLoBBb">https://codepen.io/romerocs/pen/abLoBBb</a></p>
+<h3>Drawbacks and gotchas</h3>
+<p>So like every (relatively) feature there are going to be some advantages and disadvantages.</p>
+<p><strong>No Media Query support</strong></p>
+<p>Custom properties cannot be used in media queries. This is due to the fact that media queries are not actually connected to the DOM. So when a custom property is attached to the <code>body</code> element, the media query will be unaware of it.</p>
+<pre><code class="language-css">body {
+  --mobile-breakpoint: 480px;
+}
+
+.btn {
+  display: none;
+}
+
+/* WON'T WORK! */
+@media screen and (min-width: var(--mobile-breakpoint)) {
+	.btn {
+    display: block;
+  }
+}
+</code></pre>
+<p>In the future we may be able to create custom media queries. There is currently a <a href="https://www.w3.org/TR/mediaqueries-5/#custom-mq">spec</a> for using environment variables for media queries (think iphone notch env var). There is also a custom media PostCSS plugin.</p>
+<pre><code class="language-css">@custom-media --narrow-window (max-width: 30em);
+
+@media (--narrow-window) {
+  /* narrow window styles */
+}
+</code></pre>
+<p><strong>Not supported in any version of Internet Explorer</strong></p>
+<p>If you need to support versions of Internet Explorer, you'll be stuck using a polyfill. The <a href="https://github.com/postcss/postcss-custom-properties">custom property polyfill</a> developed by the PostCSS team is one of the more popular ones.</p>
+<p><strong>Limited in their functionality compared to Sass</strong></p>
+<p>The ability to create a custom sass function or mixin and then assign them to a sass variable is one of the big reasons I still love to use sass. CSS <strong>has</strong> introduced some powerful functions like <code>calc()</code> , <code>min()</code> , <code>max()</code> , and <code>clamp()</code> that allows us to make our custom properties responsive. But it will definitely be a while before I feel comfortable ditching Sass and writing in native CSS only.</p>
+<pre><code class="language-sass">/* Sass */
+@function screen-width($width) {
+  @if map-has-key($breakpoints, $width) {
+    @return map-get($breakpoints, $width);
+  } @else {
+    @return null;
+  }
+}
+
+$breakpoint-mobile: screen-width(40);
+</code></pre>
+<h2>Practical Use Cases</h2>
+<p>So those are the basics of CSS custom properties, but what are they useful for exactly?</p>
+<p>What was previously only available in a preprocessor like sass or less, or post processors like PostCSS are now available in native CSS. That's a huge step in the evolution of the language. Here are some other practical that uses that I've found for custom props.</p>
+<h3>Keeping your code DRY</h3>
+<p>You can use css custom variables to save yourself from having to repeat values like hex color codes. Instead, you can use a more human readable and memorable value. And like any other variable, you can change its value once and make sweeping changes in every place it's used.</p>
+<pre><code class="language-css">//css custom property
+:root {
+  --primary-color: #b002a1;
+}
+
+.btn {
+	background-color: var(--primary-color);
+}
+
+h1 {
+  color: var(--primary-color);
+}
+</code></pre>
+<p>The difference with css custom props is that since they are defined in the css, they can be viewed and changed in the browser. When you open your dev tools in your browser of choice, all the properties you have defined on the page will be exposed in your styles, which is a nice convenience when you need to quickly reference them.</p>
+<p><a href="https://codepen.io/romerocs/pen/MWvNzbe">https://codepen.io/romerocs/pen/MWvNzbe</a></p>
+<h3>You can update values inline</h3>
+<p>CSS custom properties are evaluated at run-time by the browser, which means you can update your properties right in the markup. This is a <strong>huge</strong> advantage over Sass.</p>
+<p>In the Pen below I've created a simple card component. I'm using a custom property called <code>--card-color</code> to set the color of the border, heading and button. The first card doesn't have the color prop set so it uses the fallback color.</p>
+<p>In the markup for the second card I set the card color via the style attribute. And with just that one inline style I'm able to update the color in 3 places!</p>
+<p><a href="https://codepen.io/romerocs/pen/NWaqLbm">https://codepen.io/romerocs/pen/NWaqLbm</a></p>
+<h3>Great for creating dark themes</h3>
+<p>Dark mode themes have become increasingly popular, and custom props makes implementing them much easier.</p>
+<p>In the CSS of the Pen below I've created some color props to set up the dark mode theme. The generic <code>--bg-color</code> and <code>--txt-color</code> props are assigned to the body element. I then added some light and dark themed color props and set up the generic props to use the light theme by default.</p>
+<p>Then we can use a media query to check if the user has dark mode set via their operating system settings. The benefit of this approach is that we are able to make global changes to our styles with very little code.</p>
+<p><a href="https://codepen.io/romerocs/pen/eYzmbMR">https://codepen.io/romerocs/pen/eYzmbMR</a></p>
+<p>And that's a very high level overview of CSS Custom Properties. I feel like they are slowly being adopted and introduced into production code more and more, so I think as developers start to use them more we'll start to see them used in creative ways beyond what I've described here.</p>
+<h3>Credits / References</h3>
+<ol>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties">MDN</a></li>
+<li><a href="https://lea.verou.me/2021/10/custom-properties-with-defaults/">CSS properties with defaults</a></li>
+<li><a href="https://www.smashingmagazine.com/2018/05/css-custom-properties-strategy-guide/">A Strategy Guide to CSS Custom Properties</a></li>
+<li><a href="https://css-tricks.com/the-css-custom-property-toggle-trick/">The CSS Custom Property Toggle Trick</a></li>
+<li><a href="https://every-layout.dev/rudiments/modular-scale/">Modular Scale</a></li>
+<li><a href="http://type-scale.com">type-scale.com</a></li>
+<li><a href="https://piccalil.li/tutorial/getting-started-with-css-custom-properties/#heading-you-can-set-custom-properties-with-javascript">Setting CSS Custom Properties with JavaScript</a></li>
+<li><a href="https://www.smashingmagazine.com/2019/07/css-custom-properties-cascade/">CSS Custom Properties in the Cascade</a></li>
+<li><a href="https://bholmes.dev/blog/alternative-to-css-variable-media-queries/">CSS Custom Properties and Media Queries</a></li>
+<li><a href="https://github.com/postcss/postcss-custom-properties">PostCSS Custom Properties polyfill</a></li>
+<li><a href="https://www.w3.org/TR/mediaqueries-5/#custom-mq">Custom Media Queries specification</a></li>
+<li><a href="http://caniuse.com">caniuse.com</a></li>
+</ol>
+<h3>CSS Grid Resources</h3>
+<ul>
+<li><a href="https://labs.jensimmons.com/">https://labs.jensimmons.com/</a></li>
+<li><a href="https://gridbyexample.com/">https://gridbyexample.com/</a></li>
+<li><a href="https://cssgrid-generator.netlify.app/">https://cssgrid-generator.netlify.app/</a></li>
+</ul>
+
+  </div>
+</article>          
+    </div>
+    
+    <footer class='footer'>
+  <div class="l-stack l-center u-align-items-center">
+    <h2 id="contact">🙂 I'd love to hear from you! 🙃</h2>
+
+    <ul class="l-cluster" role='list'>
+      <li><a href="https://www.twitter.com/csrcreative">Twitter</a></li>
+      <li><a href="https://codepen.io/romerocs">CodePen</a></li>
+      <li><a href="https://github.com/romerocs">GitHub</a></li>
+    </ul>
+  </div>
+</footer>
+    <script type="module" src="/dist/js/index.js"></script>
+  </body>
+</html>

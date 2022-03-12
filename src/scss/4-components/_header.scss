@@ -1,32 +1,11 @@
 .header {
-  position: relative;
-  background: linear-gradient(
-    to right,
-    #d367c1 10%,
-    #dedf40 25%,
-    #62cb5c 50%,
-    #00bbcb 75%,
-    #ab79d6 90%
-  );
-  overflow: hidden;
+  --header-padding-block: var(--s0);
+  display: flex;
+  justify-content: center;
+  padding-block: var(--header-padding);
 }
 
-header > *:first-child {
-  margin: 0 auto;
-  max-width: 65ch;
-  padding: var(--s2);
-  position: relative;
-  z-index: 2;
-}
-
-.header h1 {
-  font-size: var(--s4);
-  line-height: 0.8;
-  background: linear-gradient(
-    90deg,
-    rgba(1, 109, 119, 1) 0%,
-    rgba(2, 212, 231, 1) 100%
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.header__logo-static {
+  display: block;
+  width: 150px;
 }

@@ -8,6 +8,5 @@
   max-width: var(--cr-mw);
   display: flex;
   flex-direction: column;
-  padding-right: var(--cr-padding, 0);
-  padding-left: var(--cr-padding, 0);
+  padding-inline: var(--cr-padding, 0);
 }

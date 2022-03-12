@@ -2,11 +2,6 @@
 @use '../0-settings/scale';
 @use '../0-settings/breakpoints';
 
-:root {
-  font-family: var(--sans-serif);
-  line-height: scale.$ratio;
-}
-
 * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -24,12 +19,12 @@
   margin: 0;
   padding: 0;
   border: 0 solid;
-  max-width: 65ch;
 }
 
 body {
   overflow-x: hidden;
-  font-family: var(--sans-serif);
+  font-family: var(--text);
+  line-height: scale.$ratio;
 }
 
 html,
@@ -58,7 +53,7 @@ footer {
 }
 
 :is(h1, h2, h3, h4, h5, h6) {
-  font-family: var(--serif);
+  font-family: var(--display);
   line-height: 1.1;
 }
 
@@ -112,7 +107,16 @@ ul {
 }
 
 p > code {
-  background-color: var(--inline-code-block);
+  background-color: #cccccc;
   padding: 5px 8px;
   border-radius: var(--border-radius);
+}
+
+blockquote {
+  padding-block: var(--s0);
+  border-left: 8px solid var(--hotpink);
+
+  > * {
+    padding-left: var(--s1);
+  }
 }

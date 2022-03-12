@@ -1,9 +1,31 @@
 ---
 layout: layouts/base.njk
+is_home: true
 ---
 
-<main class='l-stack u-margin-top-0'>
+<main class='l-stack u-margin-top-0 loading-animation__page-content u-padding-inline-global'>
   <section class='l-center introduction'>
-    <p>Hi there 😀, welcome to my site. I'm a front-end developer in Richmond, VA. I enjoy thinking about and writing in html, css and presentational javascript. I also like to think about the people that use the websites I build, and how to improve their experiences on them.</p>
+    <h1>Hello, welcome to my very nice website</h1>
+    <p>I'm a front-end developer in Richmond, VA. I enjoy thinking about and writing in html, css and presentational javascript. I also like to think about the people that use the websites I build, and how to improve their experiences on them.</p>
+  </section>
+  <section class="l-center u-width-100%">
+    <div class="l-grid" style="
+    --min-width: calc(((var(--bp-64) / 4) - (var(--s0) * 3)));">
+
+      {%- for post in collections.post -%}
+        <article class="card">
+          <h2><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
+        </article>
+      {%- endfor -%}
+      <article class="card card--placeholder">
+        <h2>Will I ever write another post?</h2>
+      </article>
+      <article class="card card--placeholder">
+        <h2>Possibly not!</h2>
+      </article>
+      <article class="card card--placeholder">
+        <h2>We'll see how I feel in 30 days!</h2>
+      </article>
+    </div>
   </section>
 </main>

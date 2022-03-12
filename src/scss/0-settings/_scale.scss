@@ -8,7 +8,6 @@ $ratio: 1.5;
   @return math.div($px, $base_size);
 }
 
-/* prettier-ignore */
 :root {
   --ratio: #{$ratio};
   --s-5: calc(var(--s-4) / var(--ratio));
@@ -23,4 +22,5 @@ $ratio: 1.5;
   --s4: calc(var(--s3) * var(--ratio));
   --s5: calc(var(--s4) * var(--ratio));
   --vertical-rhythm: var(--s2);
+  --global-inline-padding: var(--s2);
 }
