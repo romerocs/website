@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/static/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Page Descriptioin" />
+    <link rel="stylesheet" type="text/css" href="/dist/css/index.css" />
+    <title>[Page Title]</title>
+  </head>
+  <body class="">
+    
+
+    <div class="not-footer">
+      <header class='header l-center u-align-items-center u-margin-block-s0'>
+  <a href="/">
+    <svg class="header__logo-static header__logo-static--hidden" viewBox="0 0 150 150">
+    <defs>
+      <linearGradient id="gradientFill">
+        <stop offset="0%" stop-color="red"/>
+        <stop offset="100%" stop-color="blue"/>
+      </linearGradient>
+    </defs>
+    <path id="puffy-circle-static" fill="url(#gradientFill)" d="M150,75.2c0-7.3-3.8-12.1-7.8-14.2c2.8-3.5,4.4-9.4,1.5-16.1c-2.5-5.6-6.8-8.5-10.7-9.5
+			c0.5-4-0.5-9.1-4.9-13.4c-5.2-5.2-11.3-5.8-15.5-4.5c-0.5-4.4-3.5-9.8-10.3-12.4C96.4,2.9,91.4,3.9,87.9,6C85.5,2.8,81.2,0,75,0
+			c-7.3,0-12.1,3.9-14.2,7.8C57.4,5,51.4,3.4,44.8,6.4c-5.6,2.5-8.5,6.8-9.5,10.7c-4-0.5-9.1,0.5-13.4,4.9
+			c-5.2,5.2-5.8,11.3-4.4,15.5C13,38.1,7.6,41.1,5,47.9c-2.1,5.5-1.2,10.4,0.7,13.9C2.6,64.3,0,68.5,0,74.4
+			c-0.1,7.3,3.8,12.1,7.7,14.2C5,92.1,3.2,98,6.2,104.7c2.5,5.7,6.7,8.6,10.7,9.5c-0.6,4,0.5,9.1,4.9,13.4
+			c5.2,5.2,11.2,5.8,15.5,4.6c0.5,4.4,3.5,9.8,10.3,12.5c5.8,2.3,10.8,1.3,14.3-0.8c2.5,3.2,6.8,6.1,13,6.1
+			c7.3,0.1,12.1-3.8,14.2-7.7c3.5,2.8,9.4,4.4,16.1,1.6c5.7-2.5,8.5-6.7,9.5-10.7c4,0.5,9.1-0.5,13.4-4.9c5.2-5.2,5.8-11.3,4.5-15.5
+			c4.4-0.5,9.8-3.5,12.4-10.3c2.3-5.8,1.3-10.8-0.8-14.3C147.2,85.7,150,81.4,150,75.2z"/>
+
+    <path id="logomark-static" d="M75,76v-2h37.5C112,53.7,95.4,37.5,75,37.5c-20.7,0-37.5,16.8-37.5,37.5s16.8,37.5,37.5,37.5c20.4,0,37-16.2,37.5-36.5H75
+			z"/>
+  </svg>
+    <span class="u-show-for-sr">Chris Romero - Frontend Web Developer</span>
+  </a>
+</header>
+                              
+      <article class='l-center' style='--cr-mw: var(--bp-48)'>
+  <div class='l-stack'>
+      <!-- CREATE A TABLE OF CONTENTS!! -->
+<h1>Intro to CSS Variables</h1>
+<h3>What is a CSS Custom Property?</h3>
+<p>Per <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/--*">MDN</a>:</p>
+<blockquote>
+<p>Property names that are prefixed with <code>--</code>, like <code>--example-name</code>, represent <em>custom properties</em> that contain a value that can be used in other declarations using the <code>[var()](https://developer.mozilla.org/en-US/docs/Web/CSS/var())</code> function.</p>
+</blockquote>
+<p>So it's basically a variable that we can use in native CSS now, and in order to use the variable to set a css property like <code>font-family</code> for instance, you use the <code>var()</code> function. The idea of the variable exists in most (if not all) of programming languages. The unique property of CSS Custom Properties is that they are subject to the cascade and inherit their value from their parent, just like CSS selectors. And unlike variables in other languages, they must be assigned to a selector.</p>
+<h3>Declaring a custom property</h3>
+<p>Custom properties begin with 2 double dashes '—', followed by the name of your property. The value can be any valid CSS value.</p>
+<p>The custom property's scope is defined by its selector. There is technically no &quot;global scope&quot; in CSS so it is common to add custom properties to the <code>::root</code> pseudo-class when it is needed globally. It is also perfectly safe to assign your global values to the <code>body</code> element.</p>
+<p><strong>Global</strong></p>
+<pre class="language-css"><code class="language-css"><span class="token selector">:root</span> <span class="token punctuation">{</span><br>  <span class="token property">--font-family</span><span class="token punctuation">:</span> sans-serif<span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
+<p><strong>Local</strong></p>
+<pre class="language-css"><code class="language-css"><span class="token selector">p</span> <span class="token punctuation">{</span><br>  <span class="token property">--my-custom-property</span><span class="token punctuation">:</span> value<span class="token punctuation">;</span><br><span class="token punctuation">}</span> </code></pre>
+<h3>The var() function</h3>
+<p>When you want to use a custom property you use the <code>var()</code> . The <code>var()</code> function actually takes 2 arguments, the first is the property name itself and in the second argument you can specify an optional fallback value if property name is either invalid or undefined.</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">p</span> <span class="token punctuation">{</span><br>	<span class="token property">font-family</span><span class="token punctuation">:</span> <span class="token function">var</span><span class="token punctuation">(</span>--sans-serif<span class="token punctuation">,</span> sans-serif<span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
+<h3>Fallback values</h3>
+<p>So a few more things to be aware of for fallback values.</p>
+<p>In this code-block we have a few examples of fallbacks being used. And you'll notice that for the paragraph tag we're actually using a custom property as the fallback.</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">main</span> <span class="token punctuation">{</span><br>  <span class="token property">background-color</span><span class="token punctuation">:</span> <span class="token function">var</span><span class="token punctuation">(</span>--main-bg-color<span class="token punctuation">,</span> #ccc<span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token selector">p</span> <span class="token punctuation">{</span><br>  <span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token function">var</span><span class="token punctuation">(</span>--paragraph-font-size<span class="token punctuation">,</span> <span class="token function">var</span><span class="token punctuation">(</span>--global-font-size<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token selector">footer p</span> <span class="token punctuation">{</span><br>  <span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token function">var</span><span class="token punctuation">(</span><br>		--footer-paragraph-font-size<span class="token punctuation">,</span> <br>		<span class="token function">var</span><span class="token punctuation">(</span>--font-size-small<span class="token punctuation">,</span> <span class="token function">var</span><span class="token punctuation">(</span>--global-font-size<span class="token punctuation">)</span><span class="token punctuation">)</span><br>	<span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
+<p>And to get even crazier the last ruleset for the <code>footer p</code> the fallback values have their own fallback values! There is technically no limit to the number of times you can nest fallbacks. But be careful, because this can cause performance issues because it takes more time for the browser to parse each value.</p>
+<h3>How var() handles commas</h3>
+<p>Another interesting feature of the <code>var()</code> function is that everything between the first comma after the property name and the end of the function is considered the fallback value. So if you were to use a comma delimited value as you can for setting the font-family property, that would be totally valid.</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">p</span> <span class="token punctuation">{</span><br>	<span class="token property">font-family</span><span class="token punctuation">:</span> <span class="token function">var</span><span class="token punctuation">(</span>--font-family<span class="token punctuation">,</span> system-ui<span class="token punctuation">,</span> sans-serif<span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
+<p>The example below demonstrates this behavior by using a comma separated list of fonts as the fallback for the h1's font-family property. In the rule for the <code>h1</code> I am using a <code>--font-family</code> custom property and using a font list as the fallback. And I am setting the first font in the list to an invalid font-name to ensure that it loads the next font, in my case I have Impact loaded on my machine so that's what I see.</p>
+<figure class="video_container">
+<iframe height="400" style="width: 100%;" scrolling="no" title="Using commas in the var() function" src="https://codepen.io/romerocs/embed/preview/YzryLYe?default-tab=css%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href="https://codepen.io/romerocs/pen/YzryLYe">
+  Using commas in the var() function</a> by Chris Romero (<a href="https://codepen.io/romerocs">@romerocs</a>)
+  on <a href="https://codepen.io">CodePen</a>.
+</iframe>
+</figure>
+<h3>Inheritance</h3>
+<p>Per MDN:</p>
+<blockquote>
+<p>Custom properties are subject to the cascade and inherit their value from their parent.</p>
+</blockquote>
+<p>So custom properties behave just like css properties when it comes to inheritance. You can create globally available values by setting it at the top of the cascade and you can override those values where it's needed.</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">body</span> <span class="token punctuation">{</span><br>  <span class="token property">--text-color</span><span class="token punctuation">:</span> #000000<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token selector">p</span> <span class="token punctuation">{</span><br>  <span class="token property">color</span><span class="token punctuation">:</span> <span class="token function">var</span><span class="token punctuation">(</span>--text-color<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">/* #000000 */</span><br><span class="token punctuation">}</span></code></pre>
+<pre class="language-css"><code class="language-css"><span class="token selector">body</span> <span class="token punctuation">{</span><br>  <span class="token property">--text-color</span><span class="token punctuation">:</span> #000000<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token selector">p</span> <span class="token punctuation">{</span><br>  <span class="token property">--text-color</span><span class="token punctuation">:</span> #2f2f2f<span class="token punctuation">;</span><br>  <span class="token property">color</span><span class="token punctuation">:</span> <span class="token function">var</span><span class="token punctuation">(</span>--text-color<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">/* #2f2f2f */</span><br><span class="token punctuation">}</span></code></pre>
+<h3>Overriding Defaults</h3>
+<p>So lets say you have a component like a button, and you want the ability to easily override the default background color of the button. There are 2 approaches you could take with different implications.</p>
+<p>In the the example below there are 2 button components. The button in <strong>Approach A</strong> explicitly sets the <code>--btn-bg-color</code> custom prop to a global custom prop called <code>var(--primary-color)</code> and then uses that property to set the value for the background color.</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">//APPROACH A<br>.btn</span> <span class="token punctuation">{</span><br>  <span class="token property">--btn-bg-color</span><span class="token punctuation">:</span> <span class="token function">var</span><span class="token punctuation">(</span>--primary-color<span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token property">background-color</span><span class="token punctuation">:</span> <span class="token function">var</span><span class="token punctuation">(</span>--btn-bg-color<span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token selector">//APPROACH B<br>.btn</span> <span class="token punctuation">{</span><br>  <span class="token property">background-color</span><span class="token punctuation">:</span> <span class="token function">var</span><span class="token punctuation">(</span>--btn-bg-color<span class="token punctuation">,</span> <span class="token function">var</span><span class="token punctuation">(</span>--primary-color<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
+<p>The button in <strong>Approach B</strong> component does <strong>not</strong> explicitly set the <code>--btn-bg-color</code> prop. Instead we use the fallback argument in the <code>var()</code> function to set the default to <code>var(--primary-color)</code> .</p>
+<p>So what is the point of this exactly? Well they will both achieve their purpose of setting the background color to <code>var(--primary-color)</code> but with one key difference. In the example below there are 2 rows of buttons of different colors wrapped in a <code>p</code> tag. Both <code>p</code> tags have in inline style assigning the color <code>--purple</code> to the <code>--btn-bg-color</code> prop. However only the button row using the fallback approach has its color set to purple. Because the buttons using the fallback approach do not have the <code>--btn-bg-color</code> set, it inherits the color from its nearest ancestor.</p>
+<figure class="video_container">
+<iframe height="400" style="width: 100%;" scrolling="no" title="CSS Custom Properties: Using Fallback Values" src="https://codepen.io/romerocs/embed/preview/NWaPzbp?default-tab=css%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href="https://codepen.io/romerocs/pen/NWaPzbp">
+  CSS Custom Properties: Using Fallback Values</a> by Chris Romero (<a href="https://codepen.io/romerocs">@romerocs</a>)
+  on <a href="https://codepen.io">CodePen</a>.
+</iframe>
+</figure>
+<p>This isn't to say that you should use one approach over the other. The purpose is just to demonstrate the role that inheritance plays when using custom properties.</p>
+<h3>Valid Values</h3>
+<p>From MDN:</p>
+<blockquote>
+<p>The classical CSS concept of validity, tied to each property, is
+not very useful in regard to custom properties. When the values of the
+custom properties are parsed, the browser doesn't know where they will
+be used, so must, therefore, consider nearly all values as <em>valid</em>.</p>
+</blockquote>
+<p>So that means you can assign any value you want to a CSS custom property and it's validity will be determined by whether you are using the variable in a way that the browser can understand.</p>
+<h3>How the browser handles invalid values</h3>
+<p>Below you can see there are two h2's with different classes. The first has the font size set to green and the second has the font-size set to a custom prop of <code>--var</code> with a value of green.</p>
+<figure>
+  <iframe height="400" style="width: 100%;" scrolling="no" title="How the browser handles invalid values" src="https://codepen.io/romerocs/embed/preview/XWeKKXe?default-tab=css%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+    See the Pen <a href="https://codepen.io/romerocs/pen/XWeKKXe">
+    How the browser handles invalid values</a> by Chris Romero (<a href="https://codepen.io/romerocs">@romerocs</a>)
+    on <a href="https://codepen.io">CodePen</a>.
+  </iframe>
+</figure>
+<p>And you can see they are actually treated differently by the browser. If you look in devtools you can see that the browser knows that the font-size for the first h2 is invalid.</p>
+<div class="l-switcher">  
+  <figure>
+    <img src="/static/posts/intro-to-css-variables/invalid-value.png" alt="Chrome Devtools Screenshot showing how browsers typically handle invalid values">
+    <figcaption>How browsers typically handle invalid values</figcaption>
+  </figure>
+  <figure>
+    <img src="/static/posts/intro-to-css-variables/invalid-value-custom-prop.png" alt="Chrome Devtools Screenshot showing how browsers handle an invalid value of a custom property.">
+    <figcaption>How browsers handle an invalid value of a custom property.</figcaption>
+  </figure>
+</div>
+<p>However for the second h2 being set by the custom prop, the browser still considers the value valid. So it shows that we kind of lose the ability to debug our css a little when using custom props.</p>
+<h3>The Toggle Trick</h3>
+<p>This actually leads to an <a href="https://css-tricks.com/the-css-custom-property-toggle-trick/">interesting and (maybe) unanticipated side effect</a>. Because any value is considered valid, even white space can be used. With this you can create a kind of if/else statement to toggle a bunch of values at one time.</p>
+<p>In the example below I've created a css variable called  <code>--reduce-motion-toggle</code> with a value of <code>initial</code>. I am using that variable as the animation name with the fallback value being the rotate animation that I've defined. So when the browser encounters the invalid value of the variable, it falls back to the valid value. I've then created a media query to detect when the user prefers reduced motion and assign it a value of &quot; &quot; (ie whitespace!). So when users have that preference, the animation will no longer work, because of course &quot; &quot; (whitespace) is not the name of an actual animation, but it is accepted by the browser as a valid value!</p>
+<iframe height="400" style="width: 100%;" scrolling="no" title="CSS Custom Property Toggle" src="https://codepen.io/romerocs/embed/zYdRPyG?default-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href="https://codepen.io/romerocs/pen/zYdRPyG">
+  CSS Custom Property Toggle</a> by Chris Romero (<a href="https://codepen.io/romerocs">@romerocs</a>)
+  on <a href="https://codepen.io">CodePen</a>.
+</iframe>
+<p>Now do I think we should all start using this in our production CSS? Maybe not. It's not clear at first glance what's going on if you're not aware of this side effect, so it could create more confusion in the long run. But I do think it points to how new features can be used in ways that go beyond what the spec authors originally intended, and it shows how there is a desire for something like a boolean type variables in CSS.</p>
+<h3>Custom props and <code>calc()</code></h3>
+<p>The <code>calc()</code> function gives us the ability to perform mathematical calculations in our css. You can use arithmetic operators for addition, subtraction, multiplication and division and the browser will return the result at runtime. You can even use different unit types.</p>
+<p><strong>Without <code>calc()</code></strong></p>
+<pre class="language-css"><code class="language-css"><span class="token selector">.width-one-third</span> <span class="token punctuation">{</span><br>	<span class="token property">width</span><span class="token punctuation">:</span> 33.33333%<span class="token punctuation">;</span> <br><span class="token punctuation">}</span></code></pre>
+<p><strong>Let the browser do the math!</strong></p>
+<pre class="language-css"><code class="language-css"><span class="token selector">.width-one-third</span> <span class="token punctuation">{</span><br>   <span class="token property">width</span><span class="token punctuation">:</span> <span class="token function">calc</span><span class="token punctuation">(</span>100% / 3<span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
+<p><strong>Combining Units</strong></p>
+<pre class="language-css"><code class="language-css"><span class="token selector">.inset-container</span> <span class="token punctuation">{</span><br>  <span class="token property">width</span><span class="token punctuation">:</span> <span class="token function">calc</span><span class="token punctuation">(</span>100% - 30px<span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
+<p>And when you combine <code>calc()</code> with custom props, you now have a powerful way to create dynamic layouts.</p>
+<h3>Modular Scale</h3>
+<p>One thing I like to do with all my projects is to create what is called a <strong>modular scale</strong> for font-sizes and spacing. Basically a modular scale is a set of numbers that increase and decrease in value by a set ratio. The Golden Mean is a ratio that has been used by architects and artists for centuries to create visual harmony in their work.  And you can actually incorporate a modular scale quite easily by combining css custom props and the calc function.</p>
+<h3>Creating a modular scale</h3>
+<p>So let's see how we would set up a modular scale using custom props.</p>
+<p>In this example we have 2 custom properties. The first is our scale ratio. <a href="http://Type-Scale.com">Type-Scale.com</a> is a great resource for generating typographic scales. The second property is our base size, 1rem (the <strong>s</strong> prefix stands for 'scale'). This will be the foundation for our modular scale.</p>
+<p>In this second example we use the <code>--scale</code> and base size <code>--s0</code> custom props to build out our modular scale. To get our next size up <code>--s1</code> we use the calc function to multiply <code>--s0</code>  by the <code>--ratio</code> prop. For each new size you multiply the previous size prop by the ratio property. And conversely to achieve values smaller than the base size you divide by the scale property. And this is all made possible by the ability of <code>calc()</code> to perform mathematical operations on css length units like rem (or px, ems, etc).</p>
+<p><strong>The basis of our scale</strong></p>
+<pre class="language-css"><code class="language-css"><span class="token selector">:root</span> <span class="token punctuation">{</span><br>  <span class="token property">--ratio</span><span class="token punctuation">:</span> 1.618<br>  <span class="token property">--s0</span><span class="token punctuation">:</span> 1rem<span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
+<p><strong>Adding more sizes</strong></p>
+<pre class="language-css"><code class="language-css"><span class="token selector">:root</span> <span class="token punctuation">{</span><br>  <span class="token property">--ratio</span><span class="token punctuation">:</span> 1.618<span class="token punctuation">;</span> <span class="token comment">/* Golden Mean */</span><br>  <span class="token property">--s-1</span><span class="token punctuation">:</span> <span class="token function">calc</span><span class="token punctuation">(</span><span class="token function">var</span><span class="token punctuation">(</span>--s0<span class="token punctuation">)</span> / <span class="token function">var</span><span class="token punctuation">(</span>--ratio<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">/*  calc(1rem / 1.5) = 0.66rem */</span><br>  <span class="token property">--s0</span><span class="token punctuation">:</span> 1rem<span class="token punctuation">;</span><br>  <span class="token property">--s1</span><span class="token punctuation">:</span> <span class="token function">calc</span><span class="token punctuation">(</span><span class="token function">var</span><span class="token punctuation">(</span>--s0<span class="token punctuation">)</span> * <span class="token function">var</span><span class="token punctuation">(</span>--ratio<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">/*   calc(1rem * 1.5) = 1.5rem */</span><br>  <span class="token property">--s2</span><span class="token punctuation">:</span> <span class="token function">calc</span><span class="token punctuation">(</span><span class="token function">var</span><span class="token punctuation">(</span>--s1<span class="token punctuation">)</span> * <span class="token function">var</span><span class="token punctuation">(</span>--ratio<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">/*   calc(1.5rem * 1.5) = 2.25rem */</span><br><span class="token punctuation">}</span><br><span class="token comment">/* credit: https://every-layout.dev/rudiments/modular-scale/ */</span></code></pre>
+<iframe height="400" style="width: 100%;" scrolling="no" title="Modular Scale" src="https://codepen.io/romerocs/embed/abLoBBb?default-tab=css%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href="https://codepen.io/romerocs/pen/abLoBBb">
+  Modular Scale</a> by Chris Romero (<a href="https://codepen.io/romerocs">@romerocs</a>)
+  on <a href="https://codepen.io">CodePen</a>.
+</iframe>
+<h3>Drawbacks and gotchas</h3>
+<p>So like every (relatively) feature there are going to be some advantages and disadvantages.</p>
+<p><strong>No Media Query support</strong></p>
+<p>Custom properties cannot be used in media queries. This is due to the fact that media queries are not actually connected to the DOM. So when a custom property is attached to the <code>body</code> element, the media query will be unaware of it.</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">body</span> <span class="token punctuation">{</span><br>  <span class="token property">--mobile-breakpoint</span><span class="token punctuation">:</span> 480px<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token selector">.btn</span> <span class="token punctuation">{</span><br>  <span class="token property">display</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token comment">/* WON'T WORK! */</span><br><span class="token atrule"><span class="token rule">@media</span> screen <span class="token keyword">and</span> <span class="token punctuation">(</span><span class="token property">min-width</span><span class="token punctuation">:</span> <span class="token function">var</span><span class="token punctuation">(</span>--mobile-breakpoint<span class="token punctuation">)</span><span class="token punctuation">)</span></span> <span class="token punctuation">{</span><br>	<span class="token selector">.btn</span> <span class="token punctuation">{</span><br>    <span class="token property">display</span><span class="token punctuation">:</span> block<span class="token punctuation">;</span><br>  <span class="token punctuation">}</span><br><span class="token punctuation">}</span></code></pre>
+<p>In the future we may be able to create custom media queries using <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/env()">environmental variables</a>. There is currently a <a href="https://www.w3.org/TR/mediaqueries-5/#custom-mq">spec</a> for using environment variables for media queries.</p>
+<pre class="language-css"><code class="language-css"><span class="token atrule"><span class="token rule">@custom-media</span> --narrow-window <span class="token punctuation">(</span><span class="token property">max-width</span><span class="token punctuation">:</span> 30em<span class="token punctuation">)</span><span class="token punctuation">;</span></span><br><br><span class="token atrule"><span class="token rule">@media</span> <span class="token punctuation">(</span>--narrow-window<span class="token punctuation">)</span></span> <span class="token punctuation">{</span><br>  <span class="token comment">/* narrow window styles */</span><br><span class="token punctuation">}</span></code></pre>
+<p><strong>Not supported in any version of Internet Explorer</strong></p>
+<p>If you need to support versions of Internet Explorer, you'll be stuck using a polyfill. The <a href="https://github.com/postcss/postcss-custom-properties">custom property polyfill</a> developed by the PostCSS team is one of the more popular ones.</p>
+<p><strong>Limited in their functionality compared to Sass</strong></p>
+<p>The ability to create a custom sass function or mixin and then assign them to a sass variable is one of the big reasons I still love to use sass. CSS <strong>has</strong> introduced some powerful functions like <code>calc()</code> , <code>min()</code> , <code>max()</code> , and <code>clamp()</code> that allows us to make our custom properties responsive. But it will definitely be a while before I feel comfortable ditching Sass and writing in native CSS only.</p>
+<pre class="language-sass"><code class="language-sass"><span class="token comment">/* Sass */</span><br><span class="token atrule-line"><span class="token atrule">@function</span> screen-width($width) {</span><br><span class="token atrule-line">  <span class="token atrule">@if</span> map-has-key($breakpoints, $width) {</span><br><span class="token atrule-line">    <span class="token atrule">@return</span> map-get($breakpoints, $width);</span><br>  <span class="token selector">} @else {</span><br><span class="token atrule-line">    <span class="token atrule">@return</span> null;</span><br>  <span class="token selector">}</span><br><span class="token selector">}</span><br><br><span class="token variable-line"><span class="token variable">$breakpoint-mobile</span><span class="token punctuation">:</span> screen-width(40);</span></code></pre>
+<h2>Practical Use Cases</h2>
+<p>So those are the basics of CSS custom properties, but what are they useful for exactly?</p>
+<p>What was previously only available in a preprocessor like sass or less, or post processors like PostCSS are now available in native CSS. That's a huge step in the evolution of the language. Here are some other practical that uses that I've found for custom props.</p>
+<h3>Keeping your code DRY</h3>
+<p>You can use css custom variables to save yourself from having to repeat values like hex color codes. Instead, you can use a more human readable and memorable value. And like any other variable, you can change its value once and make sweeping changes in every place it's used.</p>
+<pre class="language-css"><code class="language-css"><span class="token selector">//css custom property<br>:root</span> <span class="token punctuation">{</span><br>  <span class="token property">--primary-color</span><span class="token punctuation">:</span> #b002a1<span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token selector">.btn</span> <span class="token punctuation">{</span><br>	<span class="token property">background-color</span><span class="token punctuation">:</span> <span class="token function">var</span><span class="token punctuation">(</span>--primary-color<span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><br><br><span class="token selector">h1</span> <span class="token punctuation">{</span><br>  <span class="token property">color</span><span class="token punctuation">:</span> <span class="token function">var</span><span class="token punctuation">(</span>--primary-color<span class="token punctuation">)</span><span class="token punctuation">;</span><br><span class="token punctuation">}</span></code></pre>
+<p>The difference with css custom props is that since they are defined in the css, they can be viewed and changed in the browser. When you open your dev tools in your browser of choice, all the properties you have defined on the page will be exposed in your styles, which is a nice convenience when you need to quickly reference them.</p>
+<h3>You can update values inline</h3>
+<p>CSS custom properties are evaluated at run-time by the browser, which means you can update your properties right in the markup. This is a <strong>huge</strong> advantage over Sass.</p>
+<p>In the example below I've created a simple card component. I'm using a custom property called <code>--card-color</code> to set the color of the border, heading and button. The first card doesn't have the color property set so it uses the fallback color.</p>
+<p>In the markup for the second card I set the card color via the style attribute. And with just that one inline style I'm able to update the color in 3 places!</p>
+<iframe height="400" style="width: 100%;" scrolling="no" title="Typical Card Component" src="https://codepen.io/romerocs/embed/NWaqLbm?default-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href="https://codepen.io/romerocs/pen/NWaqLbm">
+  Typical Card Component</a> by Chris Romero (<a href="https://codepen.io/romerocs">@romerocs</a>)
+  on <a href="https://codepen.io">CodePen</a>.
+</iframe>
+<h3>Great for creating dark themes</h3>
+<p>Dark mode themes have become increasingly popular, and custom props makes implementing them much easier.</p>
+<p>In the example below I've created some color props to set up the dark mode theme. The generic <code>--bg-color</code> and <code>--txt-color</code> properties are assigned to the body element. I then added some light and dark themed color props and set up the generic props to use the light theme by default.</p>
+<p>Then we can use a media query to check if the user has dark mode set via their operating system settings. The benefit of this approach is that we are able to make global changes to our styles with very little code.</p>
+<iframe height="400" style="width: 100%;" scrolling="no" title="Theming with CSS Custom Properties" src="https://codepen.io/romerocs/embed/eYzmbMR?default-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href="https://codepen.io/romerocs/pen/eYzmbMR">
+  Theming with CSS Custom Properties</a> by Chris Romero (<a href="https://codepen.io/romerocs">@romerocs</a>)
+  on <a href="https://codepen.io">CodePen</a>.
+</iframe>
+<p>And that's a very high level overview of CSS Custom Properties. I feel like they are slowly being adopted and introduced into production code more and more, so I think as developers start to use them more we'll start to see them used in creative ways beyond what I've described here.</p>
+<h3>Credits / References</h3>
+<ol>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties">MDN</a></li>
+<li><a href="https://lea.verou.me/2021/10/custom-properties-with-defaults/">CSS properties with defaults</a></li>
+<li><a href="https://www.smashingmagazine.com/2018/05/css-custom-properties-strategy-guide/">A Strategy Guide to CSS Custom Properties</a></li>
+<li><a href="https://css-tricks.com/the-css-custom-property-toggle-trick/">The CSS Custom Property Toggle Trick</a></li>
+<li><a href="https://every-layout.dev/rudiments/modular-scale/">Modular Scale</a></li>
+<li><a href="http://type-scale.com">type-scale.com</a></li>
+<li><a href="https://piccalil.li/tutorial/getting-started-with-css-custom-properties/#heading-you-can-set-custom-properties-with-javascript">Setting CSS Custom Properties with JavaScript</a></li>
+<li><a href="https://www.smashingmagazine.com/2019/07/css-custom-properties-cascade/">CSS Custom Properties in the Cascade</a></li>
+<li><a href="https://bholmes.dev/blog/alternative-to-css-variable-media-queries/">CSS Custom Properties and Media Queries</a></li>
+<li><a href="https://github.com/postcss/postcss-custom-properties">PostCSS Custom Properties polyfill</a></li>
+<li><a href="https://www.w3.org/TR/mediaqueries-5/#custom-mq">Custom Media Queries specification</a></li>
+<li><a href="http://caniuse.com">caniuse.com</a></li>
+</ol>
+
+  </div>
+</article>          
+    </div>
+    
+    <footer class='footer'>
+  <div class="l-stack l-center u-align-items-center">
+    <h2 id="contact">🙂 I'd love to hear from you! 🙃</h2>
+
+    <ul class="l-cluster" role='list'>
+      <li><a href="https://www.twitter.com/csrcreative">Twitter</a></li>
+      <li><a href="https://codepen.io/romerocs">CodePen</a></li>
+      <li><a href="https://github.com/romerocs">GitHub</a></li>
+    </ul>
+  </div>
+</footer>
+    <script type="module" src="/dist/js/index.js"></script>
+  </body>
+</html>
