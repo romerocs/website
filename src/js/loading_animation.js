@@ -74,10 +74,10 @@ document.addEventListener("keydown", (e) => {
 
 const scene1 = () => {
   const tl = gsap.timeline();
-  
+
   //forces focus to the window so that the spacebar to skip event works.
   window.focus();
-  
+
   const pathToClone = document.querySelector(".path-to-clone");
   const rotateWrapper = document.querySelector(".rotate");
   const scaleXPath = document.querySelector(".scale-x");
@@ -258,4 +258,4 @@ const scene3 = () => {
 
 main.add(scene1()).add(scene2()).add(scene3(), "-=2");
 
-GSDevTools.create();
+// GSDevTools.create();
