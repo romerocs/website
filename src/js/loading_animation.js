@@ -15,6 +15,7 @@ function cleanUpDOM() {
   animationWrapper.remove();
   skipAnimationInstructions.remove();
   pageContent.classList.remove("loading-animation__page-content");
+  document.querySelector('body').classList.remove('u-overflow-hidden');
 }
 
 function introAnimation() {
@@ -58,8 +59,6 @@ function introAnimation() {
     const skipAnimationTranslateY = skipAnimationRect.height + skipAnimationRect.y;
     gsap.to(animationWrapper, 1, { opacity: 0 });
     gsap.to(skipAnimationInstructions, 0.5, { y: skipAnimationTranslateY * -1, ease: "back.in(4)", onComplete: cleanUpDOM });
-
-    document.querySelector('body').classList.remove('u-overflow-hidden');
   }
 
   //TODO: CREATE A NAMED FUNCTION FOR THIS
