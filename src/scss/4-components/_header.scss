@@ -1,8 +1,8 @@
 .header {
-  --header-padding-block: var(--s0);
+  --header-padding-block: var(--s2);
   display: flex;
   justify-content: center;
-  padding-block: var(--header-padding);
+  padding-block: var(--header-padding-block);
 }
 
 .header__logo-static {

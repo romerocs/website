@@ -10,6 +10,7 @@
   </head>
   <body class="u-overflow-hidden">
     
+      <my-element />
        <div class="skip-animation-instructions skip-animation-instructions--hidden">
   <span>Press</span>
   <svg width="75" viewBox="0 0 75 20.9">
@@ -24,7 +25,7 @@
   </svg>
   <span>to skip</span>
 </div>
-<div class="loading-animation loading-animation--hidden">
+<div class="loading-animation loading-animation--hidden u-hide">
   <svg>
   <defs>
     <clipPath id="clip">
@@ -59,13 +60,11 @@
     <g class="rotate loading-animation__hidden"/>
   </g>
 </svg>
-
-  <div class="loading-animation__page-content-clone"></div>
 </div>
     
 
     <div class="not-footer">
-      <header class='header l-center u-align-items-center u-margin-block-s0'>
+      <header class='header l-center u-align-items-center'>
   <a href="/">
     <svg class="header__logo-static header__logo-static--hidden" viewBox="0 0 150 150">
     <defs>

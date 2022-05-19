@@ -1,6 +1,6 @@
 import { gsap } from "gsap";
 import { MorphSVGPlugin } from "gsap/MorphSVGPlugin";
-import { GSDevTools } from "gsap/GSDevTools";
+//import { GSDevTools } from "gsap/GSDevTools";
 import storageAvailable from "./storage_available";
 
 
@@ -204,7 +204,7 @@ function introAnimation() {
     const gradientBg = document.querySelector("#bg-animated");
     const gradientOffsetStart = document.querySelector("#offsetStart");
     const gradientOffsetEnd = document.querySelector("#offsetEnd");
-
+    const header = document.querySelector('.header');
 
     const getGradientStart = () => {
       const x = windowWidth / 2 - logoStaticRect.width / 2;
@@ -241,11 +241,11 @@ function introAnimation() {
       "-=0.8"
     );
 
-    const cloudFinalPos = ((puffyCircleDiameter - puffyCircleStaticRect.width) / 2 - 16) * -1;
+    const cloudFinalPos = ((puffyCircleDiameter - puffyCircleStaticRect.width) / 2 - 36) * -1;
 
     //TODO: CHECK THE LOGOMARK UNSCALED TO SEE HOW POSITIONING IS CALCULATED
     const logoMarkFinalPos =
-      ((logoTypeDiameter - logoMarkStaticRect.width) / 2 + 9) * -1;
+      ((logoTypeDiameter - logoMarkStaticRect.width) / 2 - 9) * -1;
 
     tl.to(puffyCircle, 0.8, { y: cloudFinalPos, scale: 0.6 }, "-=0.8");
 

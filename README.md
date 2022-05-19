@@ -54,6 +54,7 @@ Blog
 - using native web components
 
 ## Demo Ideas
+- cards (or any element really) that 'fill up' with color on hover
 - test content visible prop
 - Move character along a path with keyboard
   - create character design, background art, keyboard interactions.

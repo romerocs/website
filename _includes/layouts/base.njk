@@ -10,6 +10,7 @@
   </head>
   <body class="{% if is_home %}u-overflow-hidden{% endif %}">
     {% if is_home %}
+      <my-element />
       {% include 'components/loading-animation.njk' %}
     {% endif %}
 
