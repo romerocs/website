@@ -1,1 +1,0 @@
-_template/static/posts/** filter=lfs diff=lfs merge=lfs -text
