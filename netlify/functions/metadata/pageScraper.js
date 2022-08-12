@@ -17,8 +17,7 @@ const scraperObject = {
 		});
 
     return JSON.stringify({
-      'title' : title,
-      'images' : metaImageUrls
+      'title' : title
     });
   }
 };
