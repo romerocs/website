@@ -12,7 +12,8 @@
   },
   "dependencies": {
     "eleventy-plugin-svg-contents": "^0.7.0",
-    "gsap": "npm:@gsap/shockingly@^3.9.1"
+    "gsap": "npm:@gsap/shockingly@^3.9.1",
+    "puppeteer": "^16.1.0"
   },
   "devDependencies": {
     "@11ty/eleventy": "^1.0.0",
